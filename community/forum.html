@@ -2,42 +2,110 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Community Forum &mdash; HMG Academy Virtual Lab v5</title>
-<meta name="description" content="Connect with educators.">
-<meta name="author" content="Adewale Samson Adeagbo &mdash; HMG Concepts">
+<title>Community Forum — HMG Academy Virtual Lab v6</title>
+<meta name="description" content="Connect with fellow educators and students.">
+<meta name="author" content="Adewale Samson Adeagbo — HMG Concepts">
+<meta name="theme-color" content="#e94560">
+<meta property="og:title" content="Community Forum — HMG Academy Virtual Lab v6">
+<meta property="og:description" content="Connect with fellow educators and students.">
+<meta property="og:type" content="website">
 <link rel="icon" href="../assets/images/hmg-academy-logo.png">
+<link rel="manifest" href="../manifest.json">
 <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <body>
-<div class="topbar">🏫 <a href="https://hmgconcepts.pages.dev">HMG Concepts</a> Ecosystem &mdash; Built by <a href="https://cssadewale.pages.dev">Adewale Samson Adeagbo</a> &middot; <a href="https://hmgacademy.pages.dev">HMG Academy</a></div>
+<a href="#main" class="skip-link">Skip to content</a>
+<div class="topbar">
+  <span>🏫 <a href="https://hmgconcepts.pages.dev">HMG Concepts</a> Ecosystem — Built by <a href="https://cssadewale.pages.dev">Adewale Samson Adeagbo</a> · <a href="https://hmgacademy.pages.dev">HMG Academy</a> · Lagos, Nigeria</span>
+  <span class="top-actions">
+    <button id="theme-toggle" aria-label="Toggle dark mode">🌙</button>
+    <a href="../student/portal.html" style="color:#fff;background:rgba(255,255,255,.08);border-radius:6px;padding:2px 8px;border:1px solid rgba(255,255,255,.15);font-size:.72rem">🎒 Student</a>
+    <a href="../teacher/dashboard.html" style="color:#fff;background:rgba(255,255,255,.08);border-radius:6px;padding:2px 8px;border:1px solid rgba(255,255,255,.15);font-size:.72rem">👩‍🏫 Teacher</a>
+  </span>
+</div>
 <header class="header"><div class="container header-inner">
-<a href="../index.html" class="logo"><img src="../assets/images/hmg-academy-logo.png" alt="HMG Academy" height="42" style="height:42px;border-radius:4px;"></a>
-<nav class="nav"><button class="nav-toggle"><span></span><span></span><span></span></button><ul class="nav-menu"><li><a href="../index.html">Home</a></li>
-<li><a href="../subjects/physics/index.html">Physics</a></li>
-<li><a href="../subjects/chemistry/index.html">Chemistry</a></li>
-<li><a href="../subjects/biology/index.html">Biology</a></li>
-<li><a href="../subjects/mathematics/index.html">Maths</a></li>
-<li><a href="../subjects/general-science/index.html">Science</a></li>
-<li><a href="../teacher/dashboard.html">Teachers</a></li></ul></nav></div></header>
-<main>
-<section class="page-hero"><div class="container"><h1>💬 HMG Academy Community</h1><p>Connect with fellow educators, share resources, ask questions, and collaborate on improving STEM education.</p></div></section>
-<section class="section"><div class="container" style="max-width:700px;">
-<div class="dash-box"><h3>📝 Share Your Experience</h3>
-<div class="form-g"><label>Your Name</label><input type="text" id="fn" placeholder="Your name"></div>
-<div class="form-g"><label>Title</label><input type="text" id="ft" placeholder="Post title"></div>
-<div class="form-g"><label>Message</label><textarea id="fm" rows="3" placeholder="Share your thoughts..."></textarea></div>
-<button id="fp" class="btn btn-pri">📬 Post to Community</button></div>
-<div class="dash-box"><h3>💬 Recent Posts</h3><div id="fposts"><p style="color:var(--tl2);">No posts yet. Be the first to share!</p></div></div></div></section>
+  <a href="../index.html" class="logo">
+    <img src="../assets/images/hmg-academy-logo.png" alt="HMG Academy logo" height="42" style="height:42px;border-radius:4px">
+    <span class="logo-brand"><span class="logo-name">HMG Academy</span><span class="logo-tagline">Virtual Lab v6</span></span>
+  </a>
+  <nav class="nav"><button class="nav-toggle" aria-label="Open menu"><span></span><span></span><span></span></button>
+    <ul class="nav-menu">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../subjects/physics/index.html">Physics</a></li>
+      <li><a href="../subjects/chemistry/index.html">Chemistry</a></li>
+      <li><a href="../subjects/biology/index.html">Biology</a></li>
+      <li><a href="../subjects/mathematics/index.html">Maths</a></li>
+      <li><a href="../subjects/general-science/index.html">Science</a></li>
+      <li><a href="../tools/periodic-table.html">Tools</a></li>
+      <li><a href="../teacher/dashboard.html" class="nav-cta">Teachers</a></li>
+    </ul>
+  </nav>
+</div></header>
+<main id="main"><section class="page-hero"><div class="container">
+<p class="breadcrumb"><a href="../index.html">Home</a> / Community / Forum</p>
+<h1>💬 Community Forum</h1><p>Share experiences, ask questions, post answers. All saved locally in your browser.</p>
+</div></section>
+<section class="section"><div class="container" style="max-width:760px">
+<div class="dash-box"><h3>📝 Share something</h3>
+<div class="form-row"><div class="form-g"><label>Name</label><input id="fn" type="text" placeholder="Your name"></div><div class="form-g"><label>Title</label><input id="ft" type="text" placeholder="Post title"></div></div>
+<div class="form-g"><label>Message</label><textarea id="fm" rows="3" placeholder="Share your thoughts…"></textarea></div>
+<button class="btn btn-pri" id="fp">📬 Post</button>
+</div>
+<div class="dash-box"><h3>💬 Recent posts</h3><div id="fposts"></div></div>
+</div></section>
 <script>
-(function(){var posts=JSON.parse(localStorage.getItem('hmg-forum')||'[]');
-function rd(){var el=document.getElementById('fposts');if(!posts.length){el.innerHTML='<p style="color:var(--tl2);">No posts yet.</p>';return;}
-el.innerHTML=posts.map(function(p){return '<div style="background:var(--bg);border:1px solid #eee;border-radius:8px;padding:1rem;margin-bottom:.75rem;"><strong>'+p.title+'</strong> <span style="font-size:.75rem;color:#888;">by '+p.author+'</span><p style="font-size:.85rem;color:var(--tl);margin-top:.5rem;">'+p.msg+'</p></div>';}).join('');}
-document.getElementById('fp').addEventListener('click',function(){var n=document.getElementById('fn').value.trim()||'Anonymous',t=document.getElementById('ft').value.trim()||'Untitled',m=document.getElementById('fm').value.trim();if(!m)return;
-posts.unshift({title:t,author:n,msg:m});localStorage.setItem('hmg-forum',JSON.stringify(posts));rd();document.getElementById('ft').value='';document.getElementById('fm').value='';});
-rd();})();
+(function(){function load(){var posts=HMG.getState('forumPosts')||[];document.getElementById('fposts').innerHTML=posts.length?posts.map(function(p){return '<div class="lesson"><h4>'+p.title+' <small style="font-weight:400;color:var(--tl2)">by '+p.author+'</small></h4><p>'+p.msg+'</p></div>';}).join(''):'<p style="color:var(--tl2)">No posts yet. Be the first!</p>';}
+document.getElementById('fp').onclick=function(){var n=document.getElementById('fn').value.trim()||'Anonymous',t=document.getElementById('ft').value.trim()||'Untitled',m=document.getElementById('fm').value.trim();if(!m){HMG.toast('Message required','warn');return;}
+ var posts=HMG.getState('forumPosts')||[];posts.unshift({title:t,author:n,msg:m,at:new Date().toISOString()});HMG.setState('forumPosts',posts);
+ document.getElementById('ft').value='';document.getElementById('fm').value='';load();HMG.toast('Posted','success');};
+load();})();
 </script></main>
-<footer class="footer"><div class="container"><div class="footer-grid"><div class="footer-brand"><img src="../assets/images/hmg-academy-logo.png" alt="HMG Academy" height="35" style="height:35px;border-radius:3px;margin-bottom:.5rem;"><p>An initiative of <a href="https://hmgconcepts.pages.dev" style="color:var(--g);">HMG Concepts</a></p><p class="footer-tag">"Learning Deliberately. Teaching Authentically."</p></div><div class="footer-col"><h4>Labs</h4><ul><li><a href="../subjects/physics/index.html">⚛️ Physics</a></li><li><a href="../subjects/chemistry/index.html">🧪 Chemistry</a></li><li><a href="../subjects/biology/index.html">🧬 Biology</a></li><li><a href="../subjects/mathematics/index.html">📐 Maths</a></li></ul></div><div class="footer-col"><h4>Tools</h4><ul><li><a href="../tools/periodic-table.html">📊 Periodic Table</a></li><li><a href="../tools/calculator.html">🧮 Calculator</a></li><li><a href="../tools/graphing.html">📈 Graphing</a></li></ul></div><div class="footer-col"><h4>People</h4><ul><li><a href="../teacher/dashboard.html">👩‍🏫 Teachers</a></li><li><a href="../student/portal.html">🎒 Students</a></li><li><a href="../parent/portal.html">👨‍👩‍👧 Parents</a></li></ul></div><div class="footer-col"><h4>HMG</h4><ul><li><a href="https://hmgacademy.pages.dev">🎓 Academy</a></li><li><a href="https://hmgconcepts.pages.dev">🏢 Concepts</a></li><li><a href="https://github.com/cssadewale">🐙 GitHub</a></li></ul></div></div><div class="footer-bot"><p>&copy; 2026 HMG Concepts. Built with <strong>100% free tools</strong>.</p></div></div></footer>
-<button class="btt">&uarr;</button>
+<footer class="footer"><div class="container">
+<div class="footer-grid">
+  <div class="footer-brand">
+    <img src="../assets/images/hmg-academy-logo.png" alt="HMG Academy" height="35" style="height:35px;border-radius:3px;margin-bottom:.5rem">
+    <p>An initiative of <a href="https://hmgconcepts.pages.dev" style="color:var(--g)">HMG Concepts</a></p>
+    <p class="footer-tag">"Learning Deliberately. Teaching Authentically."</p>
+    <p style="font-size:.8rem;color:rgba(255,255,255,.4);margin-top:.5rem">Founded by <a href="https://cssadewale.pages.dev" style="color:#fff">Adewale Samson Adeagbo</a> · Lagos, Nigeria · v6.0 (2026)</p>
+  </div>
+  <div class="footer-col"><h4>Labs</h4><ul>
+    <li><a href="../subjects/physics/index.html">⚛️ Physics</a></li>
+    <li><a href="../subjects/chemistry/index.html">🧪 Chemistry</a></li>
+    <li><a href="../subjects/biology/index.html">🧬 Biology</a></li>
+    <li><a href="../subjects/mathematics/index.html">📐 Maths</a></li>
+    <li><a href="../subjects/general-science/index.html">🌍 Science</a></li>
+  </ul></div>
+  <div class="footer-col"><h4>Tools</h4><ul>
+    <li><a href="../tools/periodic-table.html">📊 Periodic Table</a></li>
+    <li><a href="../tools/calculator.html">🧮 Calculator</a></li>
+    <li><a href="../tools/graphing.html">📈 Graphing</a></li>
+    <li><a href="../tools/stopwatch.html">⏱ Stopwatch</a></li>
+    <li><a href="../tools/unit-converter.html">🔁 Unit Converter</a></li>
+    <li><a href="../tools/equation-solver.html">🧠 Equation Solver</a></li>
+  </ul></div>
+  <div class="footer-col"><h4>People</h4><ul>
+    <li><a href="../teacher/dashboard.html">👩‍🏫 Teachers</a></li>
+    <li><a href="../student/portal.html">🎒 Students</a></li>
+    <li><a href="../parent/portal.html">👨‍👩‍👧 Parents</a></li>
+    <li><a href="../admin/index.html">🏢 School Admin</a></li>
+    <li><a href="../community/forum.html">💬 Community</a></li>
+    <li><a href="../community/resources.html">📚 Resources</a></li>
+  </ul></div>
+  <div class="footer-col"><h4>HMG Ecosystem</h4><ul>
+    <li><a href="https://hmgacademy.pages.dev">🎓 HMG Academy</a></li>
+    <li><a href="https://hmgconcepts.pages.dev">🏢 HMG Concepts</a></li>
+    <li><a href="../docs/features.html">📖 Features Guide</a></li>
+    <li><a href="../docs/deployment.html">🚀 Deployment</a></li>
+    <li><a href="../docs/changelog.html">📝 Changelog</a></li>
+    <li><a href="https://github.com/hmgacademyhub/virtuallab">🐙 GitHub</a></li>
+  </ul></div>
+</div>
+<div class="footer-bot">
+  <p>© 2026 HMG Concepts. Built with <strong>100% free tools</strong> — no paid AI APIs.</p>
+  <p class="footer-tech">Vanilla JS · HTML5 · CSS3 · Canvas API · Service Worker · LocalStorage · Cloudflare / Vercel / GitHub Pages</p>
+</div></div></footer>
+<button class="btt" aria-label="Back to top">↑</button>
+<script>if('serviceWorker' in navigator){window.addEventListener('load',function(){navigator.serviceWorker.register('../sw.js').catch(function(){})})}</script>
 <script src="../assets/js/lab-core.js"></script>
-</body>
-</html>
+<script src="../assets/js/main.js"></script>
+</body></html>
