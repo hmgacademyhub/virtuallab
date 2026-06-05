@@ -2,56 +2,42 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Parent Portal — HMG Academy Virtual Lab</title>
-<meta name="description" content="Monitor your child's learning progress on HMG Academy Virtual Lab.">
-<link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg">
+<title>Parent Portal &mdash; HMG Academy Virtual Lab v5</title>
+<meta name="description" content="Monitor child learning progress.">
+<meta name="author" content="Adewale Samson Adeagbo &mdash; HMG Concepts">
+<link rel="icon" href="../assets/images/hmg-academy-logo.png">
 <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <body>
-<a href="#main-content" class="skip-link">Skip to main content</a>
-<div class="brand-banner">👨‍👩‍👧 HMG Academy Parent Portal — <a href="../index.html" style="color:#ffd700;">Back to Home</a></div>
-<main id="main-content">
-  <section class="page-hero"><div class="container"><h1>👨‍👩‍👧 Parent Portal</h1><p>Monitor your child's learning journey — simulations completed, quiz scores, badges earned, and time spent learning.</p></div></section>
-  <section class="section">
-    <div class="container" style="max-width:600px;">
-      <div class="dash-section">
-        <h3>🔍 Find Your Child</h3>
-        <p style="font-size:.875rem;color:var(--hmg-text-light);margin-bottom:1rem;">Enter your child's name or student ID (provided by their teacher) to view their progress.</p>
-        <div class="form-group"><label>Student Name or ID</label><input type="text" id="search-student" placeholder="e.g., John Doe"></div>
-        <button id="search-btn" class="btn btn-primary">View Progress</button>
-      </div>
-      <div id="parent-results" class="dash-section" style="display:none;">
-        <h3>📊 Learning Progress</h3>
-        <div id="student-info"></div>
-        <div style="margin-top:1rem;padding-top:1rem;border-top:1px solid #eee;">
-          <p style="font-size:.875rem;color:var(--hmg-text-lighter);">Detailed progress tracking shows simulations completed, quiz scores, time spent, and badges earned.</p>
-        </div>
-      </div>
-      <div class="dash-section" style="margin-top:1.5rem;">
-        <h3>❓ About This Portal</h3>
-        <p style="font-size:.875rem;color:var(--hmg-text-light);line-height:1.7;">The Parent Portal gives you visibility into your child's learning journey. Ask their teacher for the student ID. All data is stored locally in the browser — no information is sent to any server.</p>
-      </div>
-    </div>
-  </section>
-</main>
-<footer class="site-footer"><div class="container"><div class="footer-bottom"><p>&copy; 2026 HMG Concepts.</p></div></div></footer>
-<script src="../assets/js/lab-core.js"></script>
+<div class="topbar">🏫 <a href="https://hmgconcepts.pages.dev">HMG Concepts</a> Ecosystem &mdash; Built by <a href="https://cssadewale.pages.dev">Adewale Samson Adeagbo</a> &middot; <a href="https://hmgacademy.pages.dev">HMG Academy</a></div>
+<header class="header"><div class="container header-inner">
+<a href="../index.html" class="logo"><img src="../assets/images/hmg-academy-logo.png" alt="HMG Academy" height="42" style="height:42px;border-radius:4px;"></a>
+<nav class="nav"><button class="nav-toggle"><span></span><span></span><span></span></button><ul class="nav-menu"><li><a href="../index.html">Home</a></li>
+<li><a href="../subjects/physics/index.html">Physics</a></li>
+<li><a href="../subjects/chemistry/index.html">Chemistry</a></li>
+<li><a href="../subjects/biology/index.html">Biology</a></li>
+<li><a href="../subjects/mathematics/index.html">Maths</a></li>
+<li><a href="../subjects/general-science/index.html">Science</a></li>
+<li><a href="../teacher/dashboard.html">Teachers</a></li></ul></nav></div></header>
+<main>
+<section class="page-hero"><div class="container"><h1>👨‍👩‍👧 Parent Portal</h1><p>Monitor your child's learning journey — simulations completed, badges earned, quiz scores, and time spent.</p></div></section>
+<section class="section"><div class="container" style="max-width:600px;">
+<div class="dash-box"><h3>🔍 Find Your Child</h3><p style="font-size:.85rem;color:var(--tl);margin-bottom:1rem;">Enter the student name or ID provided by their teacher to view their progress report.</p>
+<div class="form-g"><label>Student Name or ID</label><input type="text" id="ps" placeholder="e.g., John Doe or STU-ABC123"></div>
+<button id="pb" class="btn btn-pri">View Progress</button></div>
+<div id="pr" class="dash-box" style="display:none;"><h3>📊 Learning Progress Report</h3><div id="pi"></div>
+<div style="margin-top:1rem;padding-top:1rem;border-top:1px solid var(--bl);"><p style="font-size:.8rem;color:var(--tl2);">All data stays in the browser — no information is sent to any server. Privacy guaranteed.</p></div></div>
+<div class="dash-box"><h3>❓ About This Portal</h3><p style="font-size:.85rem;color:var(--tl);line-height:1.7;">The Parent Portal gives you visibility into your child's learning on HMG Academy Virtual Lab. Ask their teacher for the student ID. You can view completed simulations, quiz scores, badges earned, and overall engagement.</p></div></div></section>
 <script>
-document.getElementById('search-btn').addEventListener('click', function() {
-  const q = document.getElementById('search-student').value.trim().toLowerCase();
-  if (!q) return;
-  const students = HMG.getState('students') || [];
-  const match = students.find(s => s.name.toLowerCase().includes(q) || s.id.toLowerCase().includes(q));
-  const results = document.getElementById('parent-results');
-  if (match) {
-    results.style.display = 'block';
-    document.getElementById('student-info').innerHTML = '<p><strong>Name:</strong> ' + match.name + '<br><strong>ID:</strong> ' + match.id + '<br><strong>Level:</strong> ' + (match.level||1) + ' · <strong>Points:</strong> ' + (match.points||0) + '</p><p><strong>Badges:</strong> ' + (HMG.getStudentBadges(match.id).length ? HMG.getStudentBadges(match.id).map(b=>b.icon+' '+b.name).join(', ') : 'None yet') + '</p>';
-    HMG.toast('✅ Student found!', 'success');
-  } else {
-    results.style.display = 'none';
-    HMG.toast('⚠️ Student not found. Check with the teacher.', 'warning');
-  }
-});
-</script>
+document.getElementById('pb').addEventListener('click',function(){
+var q=document.getElementById('ps').value.trim().toLowerCase();if(!q)return;
+var ss=HMG.getState('students')||[],m=ss.find(function(s){return s.name.toLowerCase().includes(q)||s.id.toLowerCase().includes(q);});
+var r=document.getElementById('pr');
+if(m){r.style.display='block';document.getElementById('pi').innerHTML='<p><strong>Name:</strong> '+m.name+'<br><strong>ID:</strong> '+m.id+'<br><strong>Level:</strong> '+(m.level||1)+' · <strong>Points:</strong> '+(m.points||0)+'</p><p><strong>Badges:</strong> '+(HMG.getStudentBadges(m.id).length?HMG.getStudentBadges(m.id).map(function(b){return b.icon+' '+b.name;}).join(', '):'None yet')+'</p>';HMG.toast('✅ Student found!','success');
+}else{r.style.display='none';HMG.toast('⚠️ Student not found. Check with the teacher.','warn');}});
+</script></main>
+<footer class="footer"><div class="container"><div class="footer-grid"><div class="footer-brand"><img src="../assets/images/hmg-academy-logo.png" alt="HMG Academy" height="35" style="height:35px;border-radius:3px;margin-bottom:.5rem;"><p>An initiative of <a href="https://hmgconcepts.pages.dev" style="color:var(--g);">HMG Concepts</a></p><p class="footer-tag">"Learning Deliberately. Teaching Authentically."</p></div><div class="footer-col"><h4>Labs</h4><ul><li><a href="../subjects/physics/index.html">⚛️ Physics</a></li><li><a href="../subjects/chemistry/index.html">🧪 Chemistry</a></li><li><a href="../subjects/biology/index.html">🧬 Biology</a></li><li><a href="../subjects/mathematics/index.html">📐 Maths</a></li></ul></div><div class="footer-col"><h4>Tools</h4><ul><li><a href="../tools/periodic-table.html">📊 Periodic Table</a></li><li><a href="../tools/calculator.html">🧮 Calculator</a></li><li><a href="../tools/graphing.html">📈 Graphing</a></li></ul></div><div class="footer-col"><h4>People</h4><ul><li><a href="../teacher/dashboard.html">👩‍🏫 Teachers</a></li><li><a href="../student/portal.html">🎒 Students</a></li><li><a href="../parent/portal.html">👨‍👩‍👧 Parents</a></li></ul></div><div class="footer-col"><h4>HMG</h4><ul><li><a href="https://hmgacademy.pages.dev">🎓 Academy</a></li><li><a href="https://hmgconcepts.pages.dev">🏢 Concepts</a></li><li><a href="https://github.com/cssadewale">🐙 GitHub</a></li></ul></div></div><div class="footer-bot"><p>&copy; 2026 HMG Concepts. Built with <strong>100% free tools</strong>.</p></div></div></footer>
+<button class="btt">&uarr;</button>
+<script src="../assets/js/lab-core.js"></script>
 </body>
 </html>
