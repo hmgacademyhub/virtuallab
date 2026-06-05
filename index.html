@@ -1,102 +1,187 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>HMG Academy Virtual Lab v5 — Free STEM Simulations</title>
-<meta name="description" content="Free interactive Physics, Chemistry, Biology & Mathematics simulations for secondary school students. Built by Adewale Samson Adeagbo for HMG Concepts.">
-<meta name="author" content="Adewale Samson Adeagbo">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Free Virtual STEM Labs — HMG Academy Virtual Lab v7</title>
+<meta name="description" content="125+ free interactive STEM simulations with realistic SVG lab equipment for secondary-school students.">
+<meta name="author" content="Adewale Samson Adeagbo — HMG Concepts">
+<meta name="theme-color" content="#e94560">
+<meta property="og:title" content="Free Virtual STEM Labs — HMG Academy Virtual Lab v7">
+<meta property="og:description" content="125+ free interactive STEM simulations with realistic SVG lab equipment for secondary-school students.">
+<meta property="og:type" content="website">
 <link rel="icon" href="assets/images/hmg-academy-logo.png">
 <link rel="manifest" href="manifest.json">
 <link rel="stylesheet" href="assets/css/style.css">
-</head><body>
-<div class="topbar">🏫 <a href="https://hmgconcepts.pages.dev">HMG Concepts</a> Ecosystem — Built by <a href="https://cssadewale.pages.dev">Adewale Samson Adeagbo</a> · <a href="https://hmgacademy.pages.dev">HMG Academy</a> · Lagos, Nigeria</div>
+</head>
+<body>
+<a href="#main" class="skip-link">Skip to content</a>
+<div class="topbar">
+  <span>🏫 <a href="https://hmgconcepts.pages.dev">HMG Concepts</a> Ecosystem — Built by <a href="https://cssadewale.pages.dev">Adewale Samson Adeagbo</a> · <a href="https://hmgacademy.pages.dev">HMG Academy</a> · Lagos, Nigeria · v7</span>
+  <span class="top-actions">
+    <button id="theme-toggle" aria-label="Toggle dark mode">🌙</button>
+    <a href="tools/equipment.html" style="color:#fff;background:rgba(255,255,255,.08);border-radius:6px;padding:2px 8px;border:1px solid rgba(255,255,255,.15);font-size:.72rem">🔬 Equipment</a>
+    <a href="student/portal.html" style="color:#fff;background:rgba(255,255,255,.08);border-radius:6px;padding:2px 8px;border:1px solid rgba(255,255,255,.15);font-size:.72rem">🎒 Student</a>
+    <a href="teacher/dashboard.html" style="color:#fff;background:rgba(255,255,255,.08);border-radius:6px;padding:2px 8px;border:1px solid rgba(255,255,255,.15);font-size:.72rem">👩‍🏫 Teacher</a>
+  </span>
+</div>
 <header class="header"><div class="container header-inner">
-<a href="index.html" class="logo"><img src="assets/images/hmg-academy-logo.png" alt="HMG Academy" height="42" style="height:42px;border-radius:4px;"></a>
-<nav class="nav"><button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
-<ul class="nav-menu"><li><a href="index.html" class="active">Home</a></li><li><a href="subjects/physics/index.html">Physics</a></li><li><a href="subjects/chemistry/index.html">Chemistry</a></li><li><a href="subjects/biology/index.html">Biology</a></li><li><a href="subjects/mathematics/index.html">Maths</a></li><li><a href="teacher/dashboard.html" class="nav-cta">Teachers</a></li></ul></nav></div></header>
-<main>
+  <a href="index.html" class="logo">
+    <img src="assets/images/hmg-academy-logo.png" alt="HMG Academy logo" height="42" style="height:42px;border-radius:4px">
+    <span class="logo-brand"><span class="logo-name">HMG Academy</span><span class="logo-tagline">Virtual Lab v7</span></span>
+  </a>
+  <nav class="nav"><button class="nav-toggle" aria-label="Open menu"><span></span><span></span><span></span></button>
+    <ul class="nav-menu">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="subjects/physics/index.html">Physics</a></li>
+      <li><a href="subjects/chemistry/index.html">Chemistry</a></li>
+      <li><a href="subjects/biology/index.html">Biology</a></li>
+      <li><a href="subjects/mathematics/index.html">Maths</a></li>
+      <li><a href="subjects/general-science/index.html">Science</a></li>
+      <li><a href="tools/equipment.html">Equipment</a></li>
+      <li><a href="teacher/dashboard.html" class="nav-cta">Teachers</a></li>
+    </ul>
+  </nav>
+</div></header>
+<main id="main">
 <section class="hero"><div class="container hero-grid"><div>
-<h1 class="hero-title">Empowering African Students Through <span class="hl">Interactive Virtual Labs</span></h1>
-<p class="hero-desc">HMG Academy Virtual Lab v5 brings real, working laboratory simulations to every secondary school student — <strong style="color:var(--g);">completely free</strong>. Built by Nigerian educator Adewale Samson Adeagbo for Nigerian students.</p>
-<div class="hero-actions"><a href="#labs" class="btn btn-pri btn-lg">🧪 Explore Labs</a><a href="subjects/physics/index.html" class="btn btn-sec btn-lg">⚛️ Physics Lab</a><a href="teacher/dashboard.html" class="btn btn-sec btn-lg">👩‍🏫 Teachers</a></div>
-<div class="hero-stats"><div class="hero-stat"><span class="hero-stat-n" data-count="60">0</span><span class="hero-stat-l">Sims</span></div><div class="hero-stat"><span class="hero-stat-n" data-count="6">0</span><span class="hero-stat-l">Subjects</span></div><div class="hero-stat"><span class="hero-stat-n" data-count="100">0</span><span class="hero-stat-l">Free</span></div><div class="hero-stat"><span class="hero-stat-n" data-count="500">0</span><span class="hero-stat-l">Schools</span></div></div></div>
-<div aria-hidden="true"><svg viewBox="0 0 200 260" width="180" height="234"><path d="M75 200C75 222 100 242 100 242C100 242 125 222 125 200L148 70C148 48 126 38 100 38C74 38 52 48 52 70L75 200Z" fill="rgba(233,69,96,0.12)" stroke="rgba(233,69,96,0.4)" stroke-width="1.5"/><circle cx="100" cy="88" r="10" fill="#e94560" opacity=".7"><animate attributeName="cy" values="88;78;88" dur="3s" repeatCount="indefinite"/></circle><circle cx="100" cy="120" r="7" fill="#0f3460" opacity=".6"><animate attributeName="cy" values="120;110;120" dur="2.5s" repeatCount="indefinite"/></circle><circle cx="100" cy="155" r="14" fill="#53d769" opacity=".5"><animate attributeName="cy" values="155;140;155" dur="3.5s" repeatCount="indefinite"/></circle></svg></div></div></section>
+  <h1 class="hero-title">Africa's Most Complete <span class="hl">Free Virtual STEM Lab</span></h1>
+  <p class="hero-desc">HMG Academy Virtual Lab <strong>v7</strong> now ships <strong>125+ working simulations</strong> across 5 subjects, a <strong>36-piece interactive lab equipment gallery</strong> with realistic SVG apparatus, the corrected 118-element periodic table, full teacher / admin / parent tools — <strong style="color:var(--g)">100% free</strong>, no AI APIs, no servers.</p>
+  <div class="hero-actions">
+    <a href="#labs" class="btn btn-pri btn-lg">🧪 Explore 5 Labs</a>
+    <a href="tools/equipment.html" class="btn btn-sec btn-lg">🔬 Equipment Gallery</a>
+    <a href="teacher/dashboard.html" class="btn btn-sec btn-lg">👩‍🏫 Teachers</a>
+  </div>
+  <div class="hero-stats">
+    <div class="hero-stat"><span class="hero-stat-n" data-count="125">0</span><span class="hero-stat-l">Sims</span></div>
+    <div class="hero-stat"><span class="hero-stat-n" data-count="36">0</span><span class="hero-stat-l">Apparatus</span></div>
+    <div class="hero-stat"><span class="hero-stat-n" data-count="118">0</span><span class="hero-stat-l">Elements</span></div>
+    <div class="hero-stat"><span class="hero-stat-n" data-count="100">0</span><span class="hero-stat-l">% Free</span></div>
+  </div>
+</div>
+<div aria-hidden="true">
+  <div id="heroEquip" style="display:grid;grid-template-columns:1fr 1fr;gap:.5rem;max-width:280px;margin:0 auto"></div>
+</div></div></section>
 
-<section class="section section-alt"><div class="container"><div class="section-hd"><span class="section-lb">Features</span><h2 class="section-tt">Complete Virtual Laboratory for African Schools</h2></div>
+<section class="section section-alt"><div class="container"><div class="section-hd">
+  <span class="section-lb">What's new in v7</span>
+  <h2 class="section-tt">75 new topics · 36 interactive apparatus</h2>
+  <p class="section-d">v7 adds 15 brand-new simulations per subject (75 total) — every one paired with realistic SVG lab equipment that students can click to inspect.</p>
+</div>
 <div class="f-grid">
-<div class="f-card"><div class="f-icon">⚛️</div><h3 class="f-title">5 Working Physics Sims</h3><p class="f-desc">Pendulum (data capture), Projectile Motion, Wave Interference, Ohm's Law (animated circuit), Lens Optics — all real-time Canvas-based.</p></div>
-<div class="f-card"><div class="f-icon">📊</div><h3 class="f-title">Interactive Periodic Table</h3><p class="f-desc">All 118 elements with atomic mass, categories, color-coded groups. Click any element for detailed properties.</p></div>
-<div class="f-card"><div class="f-icon">📐</div><h3 class="f-title">60+ Curriculum-Aligned Sims</h3><p class="f-desc">10 per subject across Physics, Chemistry, Biology, Mathematics, General Science. WAEC/NECO/JAMB/IGCSE mapped.</p></div>
-<div class="f-card"><div class="f-icon">🏆</div><h3 class="f-title">Gamification</h3><p class="f-desc">10 badges, leaderboard, points/levels. Complete sims (+10pts), score 100% on quizzes (+25pts), earn badges (+50pts).</p></div>
-<div class="f-card"><div class="f-icon">👩‍🏫</div><h3 class="f-title">Teacher Dashboard</h3><p class="f-desc">Create classes, manage students, track progress. All with LocalStorage — no server needed, complete privacy.</p></div>
-<div class="f-card"><div class="f-icon">🎒</div><h3 class="f-title">Student Portal</h3><p class="f-desc">Track progress, earn badges, climb the leaderboard. Complete simulations to earn points and level up.</p></div>
-<div class="f-card"><div class="f-icon">👨‍👩‍👧</div><h3 class="f-title">Parent Portal</h3><p class="f-desc">Monitor learning progress — completed simulations, quiz scores, badges earned, time spent learning.</p></div>
-<div class="f-card"><div class="f-icon">🌐</div><h3 class="f-title">Offline-First</h3><p class="f-desc">Service Worker caching. ~300KB total. Works on 2G and low-end devices. Built for Nigerian realities.</p></div>
-<div class="f-card f-card-ent"><div class="f-icon">🏢</div><h3 class="f-title">Enterprise Features (Free)</h3><p class="f-desc">School-wide deployment, admin dashboard, bulk CSV import, custom branding — all zero cost.</p></div>
+  <div class="f-card"><div class="f-icon">⚛️</div><h3 class="f-title">25 Physics topics</h3><p class="f-desc">10 original + 15 new — Free fall · Newton's 2nd Law · Friction · Energy · Momentum · Density · Pressure · Refraction · Sound · Specific heat · Capacitor · Doppler · Radioactivity · Thermal radiation · Spectrum.</p></div>
+  <div class="f-card"><div class="f-icon">🧪</div><h3 class="f-title">25 Chemistry topics</h3><p class="f-desc">10 original + 15 new — Atomic structure · Molar mass · Solubility · Concentration · Equilibrium · Kinetic theory · Hess's Law · Buffers · Catalysis · Polymers · Indicators · Empirical formula · Periodic trends · Thermo · Crystallisation.</p></div>
+  <div class="f-card"><div class="f-icon">🧬</div><h3 class="f-title">25 Biology topics</h3><p class="f-desc">10 original + 15 new — Plant cell · Enzymes · Respiration · Heart beat · Kidney · Digestion · Mitosis · Food chain · Blood types · Breathing · Skeleton · Muscle · Ecosystem · Punnett square · Darwin's finches.</p></div>
+  <div class="f-card"><div class="f-icon">📐</div><h3 class="f-title">25 Maths tools</h3><p class="f-desc">10 original + 15 new — Linear eq · Factoring · Derivatives · Integrals · Limits · Logs · Exponentials · Circle geometry · Permutations · Complex numbers · Number bases · Stats · Percentage · Compound interest.</p></div>
+  <div class="f-card"><div class="f-icon">🌍</div><h3 class="f-title">25 Gen-Science topics</h3><p class="f-desc">10 original + 15 new — Weather · Water cycle · Food pyramid · Climate · Renewables · Recycling · Seasons · Tides · Acid rain · Music · Magnetic field · Stars · Plate tectonics · Biodiversity.</p></div>
+  <div class="f-card"><div class="f-icon">🔬</div><h3 class="f-title">Lab Equipment Gallery</h3><p class="f-desc">36 realistic SVG apparatus — beaker, flask, burner, microscope, thermometer, voltmeter, ammeter, burette, magnet, telescope, pipette, plant, DNA, heart and many more. All vector — load instantly even on 2G.</p></div>
+  <div class="f-card"><div class="f-icon">📊</div><h3 class="f-title">Fixed Periodic Table</h3><p class="f-desc">All 118 elements correctly placed with search, category filter, electronegativity, electron config, common uses.</p></div>
+  <div class="f-card"><div class="f-icon">🏆</div><h3 class="f-title">Gamification + Quizzes</h3><p class="f-desc">10 unlockable badges, level system, auto-graded quiz on every sim. Drives engagement without any cost.</p></div>
+  <div class="f-card f-card-ent"><div class="f-icon">🏢</div><h3 class="f-title">Enterprise (still free)</h3><p class="f-desc">School admin dashboard · CSV bulk import · classes & codes · JSON backup/restore · dark mode · PWA install · printable worksheets — at zero cost.</p></div>
 </div></div></section>
 
-<section id="labs" class="section"><div class="container"><div class="section-hd"><span class="section-lb">Explore</span><h2 class="section-tt">Choose Your Laboratory</h2></div>
+<section id="labs" class="section"><div class="container"><div class="section-hd">
+  <span class="section-lb">Explore</span><h2 class="section-tt">Choose your Laboratory</h2>
+  <p class="section-d">Each subject hub now holds 25 working simulations with realistic apparatus and built-in quizzes.</p>
+</div>
 <div class="lab-grid">
-<a href="subjects/physics/index.html" class="lab-card" style="border-top:4px solid #4a90d9;"><div style="font-size:2.5rem;margin-bottom:.5rem;">⚛️</div><h3>Physics Lab</h3><p>5 working simulations + 5 more. Pendulum, Projectile, Waves, Ohm's Law, Lens.</p><span class="ct" style="color:#4a90d9;">10+ Experiments →</span></a>
-<a href="subjects/chemistry/index.html" class="lab-card" style="border-top:4px solid #27ae60;"><div style="font-size:2.5rem;margin-bottom:.5rem;">🧪</div><h3>Chemistry Lab</h3><p>Titration, Stoichiometry, Bonding, pH, Electrochemistry, Organic, Rates, Qualitative, Separation, Nuclear.</p><span class="ct" style="color:#27ae60;">10+ Experiments →</span></a>
-<a href="subjects/biology/index.html" class="lab-card" style="border-top:4px solid #e67e22;"><div style="font-size:2.5rem;margin-bottom:.5rem;">🧬</div><h3>Biology Lab</h3><p>Cell, DNA, Microbiology, Ecology, Anatomy, Photosynthesis, Blood, Nervous, Evolution, Reproduction.</p><span class="ct" style="color:#e67e22;">10+ Experiments →</span></a>
-<a href="subjects/mathematics/index.html" class="lab-card" style="border-top:4px solid #9b59b6;"><div style="font-size:2.5rem;margin-bottom:.5rem;">📐</div><h3>Mathematics Lab</h3><p>Graphing, Trigonometry, Statistics, Geometry, Algebra, Calculus, Sequences, Vectors, Probability, Matrices.</p><span class="ct" style="color:#9b59b6;">10+ Tools →</span></a>
-<a href="subjects/general-science/index.html" class="lab-card" style="border-top:4px solid #1abc9c;"><div style="font-size:2.5rem;margin-bottom:.5rem;">🌍</div><h3>General Science</h3><p>Earth, Solar System, Scientific Method, Electronics, Lab Safety, Environmental, Matter, Telescopes, Machines, Ocean.</p><span class="ct" style="color:#1abc9c;">10+ Topics →</span></a>
-<a href="tools/periodic-table.html" class="lab-card" style="border-top:4px solid #e74c3c;"><div style="font-size:2.5rem;margin-bottom:.5rem;">🔧</div><h3>Tools &amp; Portals</h3><p>Interactive Periodic Table, Calculator, Graphing Tool, Teacher Dashboard, Student &amp; Parent Portals.</p><span class="ct" style="color:#e74c3c;">15+ Tools →</span></a>
+  <a href="subjects/physics/index.html" class="lab-card" style="border-top:4px solid #4a90d9"><div style="font-size:2.5rem;margin-bottom:.5rem">⚛️</div><h3>Physics Lab</h3><p>25 sims · Pendulum, projectile, capacitor, Doppler, radioactivity & more.</p><span class="ct" style="color:#4a90d9">25 Experiments →</span></a>
+  <a href="subjects/chemistry/index.html" class="lab-card" style="border-top:4px solid #27ae60"><div style="font-size:2.5rem;margin-bottom:.5rem">🧪</div><h3>Chemistry Lab</h3><p>25 sims · Titration, equilibrium, buffers, polymers, periodic trends.</p><span class="ct" style="color:#27ae60">25 Experiments →</span></a>
+  <a href="subjects/biology/index.html" class="lab-card" style="border-top:4px solid #e67e22"><div style="font-size:2.5rem;margin-bottom:.5rem">🧬</div><h3>Biology Lab</h3><p>25 sims · Cells, mitosis, organs, ecosystems, Punnett squares.</p><span class="ct" style="color:#e67e22">25 Experiments →</span></a>
+  <a href="subjects/mathematics/index.html" class="lab-card" style="border-top:4px solid #9b59b6"><div style="font-size:2.5rem;margin-bottom:.5rem">📐</div><h3>Mathematics Lab</h3><p>25 tools · Calculus, complex numbers, circle theorems, financial maths.</p><span class="ct" style="color:#9b59b6">25 Tools →</span></a>
+  <a href="subjects/general-science/index.html" class="lab-card" style="border-top:4px solid #1abc9c"><div style="font-size:2.5rem;margin-bottom:.5rem">🌍</div><h3>General Science</h3><p>25 topics · Weather, climate, water cycle, plate tectonics, stars.</p><span class="ct" style="color:#1abc9c">25 Topics →</span></a>
+  <a href="tools/equipment.html" class="lab-card" style="border-top:4px solid #e74c3c"><div style="font-size:2.5rem;margin-bottom:.5rem">🔬</div><h3>Equipment Gallery</h3><p>36 realistic SVG laboratory apparatus — interactive, searchable, printable.</p><span class="ct" style="color:#e74c3c">36 Apparatus →</span></a>
 </div></div></section>
 
-<section class="section section-alt"><div class="container"><div class="section-hd"><span class="section-lb">Live Demo</span><h2 class="section-tt">Featured: Pendulum Wave Lab</h2><p class="section-d">Adjust length and gravity — watch physics in real-time. Collect data to verify T = 2π√(L/g).</p></div>
-<div class="sim-player"><div class="sim-cv"><canvas id="liveP" width="700" height="380"></canvas></div>
-<div class="sim-ct"><label>Length: <span id="lp1">120</span>px <input type="range" id="lc1" min="50" max="200" value="120"></label>
-<label>Gravity: <span id="lp2">9.8</span> <input type="range" id="lc2" min="1" max="20" step="0.1" value="9.8"></label>
-<button id="lt1" class="btn btn-sm btn-pri">⏸ Pause</button><button id="lr1" class="btn btn-sm btn-ghost">📊 Record</button></div>
-<div class="sim-info"><p><strong>🎯 WAEC Practical:</strong> Standard pendulum experiment. Adjust L, record T, plot T² vs L to determine g.</p></div></div></div></section>
-
-<section style="padding:2rem 0;background:var(--bg2);text-align:center;"><div class="container" style="max-width:700px;">
-<img src="assets/images/founder.jpg" alt="Adewale Samson Adeagbo" style="width:100px;height:100px;border-radius:50%;margin:0 auto 1rem;object-fit:cover;border:3px solid var(--a);">
-<h3 style="font-size:1.1rem;font-weight:700;">From a Classroom Teacher to Building EdTech</h3>
-<p style="font-size:.9rem;color:var(--tl);line-height:1.7;margin-top:.5rem;">"HMG Academy Virtual Lab was born in a Nigerian classroom. After 15+ years of teaching, I built this platform deliberately, with free tools, for students and teachers who need it most."</p>
-<p style="margin-top:.75rem;"><strong>— <a href="https://cssadewale.pages.dev">Adewale Samson Adeagbo</a></strong><br><span style="font-size:.8rem;color:var(--tl2);">AI-Augmented Solutions Developer · Data Scientist · STEM Educator · Founder, HMG Concepts</span></p>
-<div style="margin-top:.75rem;display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap;">
-<a href="https://github.com/cssadewale" target="_blank" class="btn btn-sm btn-ghost">🐙 GitHub</a>
-<a href="https://youtube.com/@hmgconcepts" target="_blank" class="btn btn-sm btn-ghost">📺 YouTube</a>
-<a href="https://wa.me/2348100866322" target="_blank" class="btn btn-sm btn-ghost">💬 WhatsApp</a>
+<section class="section section-alt"><div class="container"><div class="section-hd">
+  <span class="section-lb">Lab bench preview</span><h2 class="section-tt">Real apparatus on every page</h2>
+  <p class="section-d">Each simulation in v7 displays the actual equipment students will use on a wooden lab bench. Click any to learn more.</p>
+</div>
+<div class="lab-bench">
+  <div class="lab-row" id="benchDemo"></div>
 </div></div></section>
 
-<section style="padding:3rem 0;background:linear-gradient(135deg,var(--p),var(--s));color:#fff;text-align:center;"><div class="container" style="max-width:700px;">
-<h2 style="font-size:2rem;font-weight:800;margin-bottom:1rem;">Ready to Transform Science Education?</h2>
-<p style="font-size:1.1rem;color:rgba(255,255,255,0.85);margin-bottom:1.5rem;">Zero cost. Zero installation. Zero excuses.</p>
-<div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
-<a href="teacher/dashboard.html" class="btn btn-pri btn-lg">👩‍🏫 Teacher Dashboard</a>
-<a href="subjects/physics/index.html" class="btn btn-sec btn-lg">⚛️ Physics Lab</a>
-<a href="tools/periodic-table.html" class="btn btn-sec btn-lg">📊 Periodic Table</a>
-</div></div></section>
-</main>
-<footer class="footer"><div class="container"><div class="footer-grid">
-<div class="footer-brand"><img src="assets/images/hmg-academy-logo.png" alt="HMG Academy" height="35" style="height:35px;border-radius:3px;margin-bottom:.5rem;"><p>An initiative of <a href="https://hmgconcepts.pages.dev" style="color:var(--g);">HMG Concepts</a></p><p class="footer-tag">"Learning Deliberately. Teaching Authentically."</p><p style="font-size:.8rem;color:rgba(255,255,255,0.4);">Founded by <a href="https://cssadewale.pages.dev" style="color:#fff;">Adewale Samson Adeagbo</a> · Lagos, Nigeria</p></div>
-<div class="footer-col"><h4>Labs</h4><ul><li><a href="subjects/physics/index.html">⚛️ Physics</a></li><li><a href="subjects/chemistry/index.html">🧪 Chemistry</a></li><li><a href="subjects/biology/index.html">🧬 Biology</a></li><li><a href="subjects/mathematics/index.html">📐 Maths</a></li></ul></div>
-<div class="footer-col"><h4>Tools</h4><ul><li><a href="tools/periodic-table.html">📊 Periodic Table</a></li><li><a href="tools/calculator.html">🧮 Calculator</a></li><li><a href="tools/graphing.html">📈 Graphing</a></li></ul></div>
-<div class="footer-col"><h4>People</h4><ul><li><a href="teacher/dashboard.html">👩‍🏫 Teachers</a></li><li><a href="student/portal.html">🎒 Students</a></li><li><a href="parent/portal.html">👨‍👩‍👧 Parents</a></li></ul></div>
-<div class="footer-col"><h4>HMG</h4><ul><li><a href="https://hmgacademy.pages.dev">🎓 Academy</a></li><li><a href="https://hmgconcepts.pages.dev">🏢 Concepts</a></li><li><a href="https://github.com/cssadewale">🐙 GitHub</a></li></ul></div>
-</div><div class="footer-bot"><p>© 2026 HMG Concepts. Built with <strong>100% free tools</strong> — no paid AI APIs.</p></div></div></footer>
-<button class="btt" aria-label="Back to top">↑</button>
-<script>if('serviceWorker'in navigator){window.addEventListener('load',function(){navigator.serviceWorker.register('sw.js').catch(function(){})})}</script>
-<script src="assets/js/lab-core.js"></script>
+<section style="padding:2rem 0;background:var(--bg2);text-align:center"><div class="container" style="max-width:700px">
+  <img src="assets/images/founder.jpg" alt="Adewale Samson Adeagbo" style="width:100px;height:100px;border-radius:50%;margin:0 auto 1rem;object-fit:cover;border:3px solid var(--a)">
+  <h3 style="font-size:1.1rem;font-weight:700">From a Classroom Teacher to Building EdTech</h3>
+  <p style="font-size:.92rem;color:var(--tl);line-height:1.7;margin-top:.5rem">"With v7 every Nigerian classroom can see a beaker, a microscope, a Bunsen burner on the screen — and interact with them. Zero cost, no API keys, no internet required after first load."</p>
+  <p style="margin-top:.75rem"><strong>— <a href="https://cssadewale.pages.dev">Adewale Samson Adeagbo</a></strong></p>
+  <div style="margin-top:.75rem;display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap">
+    <a href="https://github.com/hmgacademyhub/virtuallab" target="_blank" class="btn btn-sm btn-ghost">🐙 GitHub</a>
+    <a href="https://wa.me/2348100866322" target="_blank" class="btn btn-sm btn-ghost">💬 WhatsApp</a>
+  </div>
+</div></section>
+
+<section style="padding:3rem 0;background:linear-gradient(135deg,var(--p),var(--s));color:#fff;text-align:center"><div class="container" style="max-width:720px">
+  <h2 style="font-size:2rem;font-weight:800;margin-bottom:1rem">Ready to transform Science Education?</h2>
+  <p style="font-size:1.1rem;color:rgba(255,255,255,.85);margin-bottom:1.5rem">125 sims · 36 apparatus · 118 elements · 100% free · zero install.</p>
+  <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
+    <a href="teacher/dashboard.html" class="btn btn-pri btn-lg">👩‍🏫 Teacher Dashboard</a>
+    <a href="tools/equipment.html" class="btn btn-sec btn-lg">🔬 Equipment Gallery</a>
+    <a href="tools/periodic-table.html" class="btn btn-sec btn-lg">📊 Periodic Table</a>
+  </div>
+</div></section>
+
 <script>
 document.addEventListener('DOMContentLoaded',function(){
-var c=document.getElementById('liveP');if(!c)return;var cx=c.getContext('2d');var a=Math.PI/4,v=0,l=120,g=9.8,r=1,d=[];
-document.getElementById('lc1').oninput=function(){l=+this.value;document.getElementById('lp1').textContent=l;};
-document.getElementById('lc2').oninput=function(){g=+this.value;document.getElementById('lp2').textContent=g;};
-document.getElementById('lt1').onclick=function(){r=!r;this.textContent=r?'⏸ Pause':'▶ Resume';};
-document.getElementById('lr1').onclick=function(){var p=2*Math.PI*Math.sqrt(l/(g*10));d.push({L:l,T:p.toFixed(3)});};
-(function loop(){if(r){var acc=(-g/l)*Math.sin(a);v+=acc*0.05;v*=0.997;a+=v*0.05;}
-cx.clearRect(0,0,700,380);var px=350,py=55,s=l*2,bx=px+s*Math.sin(a),by=py+s*Math.cos(a);
-for(var x=0;x<=700;x+=50){cx.beginPath();cx.moveTo(x,0);cx.lineTo(x,380);cx.strokeStyle='#eee';cx.stroke();}
-for(var y=0;y<=380;y+=50){cx.beginPath();cx.moveTo(0,y);cx.lineTo(700,y);cx.stroke();}
-cx.beginPath();cx.moveTo(px,py);cx.lineTo(bx,by);cx.strokeStyle='#555';cx.lineWidth=1.5;cx.stroke();
-cx.beginPath();cx.arc(px,py,8,0,Math.PI*2);cx.fillStyle='#333';cx.fill();
-cx.beginPath();cx.arc(bx,by,15,0,Math.PI*2);var gr=cx.createRadialGradient(bx-4,by-4,2,bx,by,15);gr.addColorStop(0,'#ff6b81');gr.addColorStop(1,'#e94560');cx.fillStyle=gr;cx.fill();
-cx.fillStyle='#555';cx.font='13px Inter';cx.textAlign='left';cx.fillText('θ='+(a*180/Math.PI).toFixed(1)+'°',10,22);
-var p=2*Math.PI*Math.sqrt(l/(g*10));cx.fillText('T='+p.toFixed(3)+'s T²='+(p*p).toFixed(3)+'s²',10,40);cx.fillText('Data:'+d.length,10,58);
-requestAnimationFrame(loop);})();});
+  // Hero apparatus preview
+  var he=document.getElementById('heroEquip');
+  if(he){var ids=['beaker','flask','bunsen','microscope'];
+   he.innerHTML=ids.map(function(id){var it=LAB.GALLERY.find(function(x){return x.id===id;});return '<div style="background:rgba(255,255,255,.06);padding:.5rem;border-radius:8px">'+it.render()+'</div>';}).join('');}
+  // Bench demo
+  var bd=document.getElementById('benchDemo');
+  if(bd){var ids=['beaker','bunsen','testtube','tripod','thermometer','flask'];
+   bd.innerHTML=ids.map(function(id){var it=LAB.GALLERY.find(function(x){return x.id===id;});return '<div class="lab-cell"><div>'+it.render()+'</div><h5>'+it.name+'</h5></div>';}).join('');}
+});
 </script>
+</main>
+<footer class="footer"><div class="container">
+<div class="footer-grid">
+  <div class="footer-brand">
+    <img src="assets/images/hmg-academy-logo.png" alt="HMG Academy" height="35" style="height:35px;border-radius:3px;margin-bottom:.5rem">
+    <p>An initiative of <a href="https://hmgconcepts.pages.dev" style="color:var(--g)">HMG Concepts</a></p>
+    <p class="footer-tag">"Learning Deliberately. Teaching Authentically."</p>
+    <p style="font-size:.8rem;color:rgba(255,255,255,.4);margin-top:.5rem">Founded by <a href="https://cssadewale.pages.dev" style="color:#fff">Adewale Samson Adeagbo</a> · Lagos, Nigeria · v7.0 (2026)</p>
+  </div>
+  <div class="footer-col"><h4>Labs</h4><ul>
+    <li><a href="subjects/physics/index.html">⚛️ Physics (25)</a></li>
+    <li><a href="subjects/chemistry/index.html">🧪 Chemistry (25)</a></li>
+    <li><a href="subjects/biology/index.html">🧬 Biology (25)</a></li>
+    <li><a href="subjects/mathematics/index.html">📐 Maths (25)</a></li>
+    <li><a href="subjects/general-science/index.html">🌍 Science (25)</a></li>
+  </ul></div>
+  <div class="footer-col"><h4>Tools</h4><ul>
+    <li><a href="tools/equipment.html">🔬 Equipment Gallery</a></li>
+    <li><a href="tools/periodic-table.html">📊 Periodic Table</a></li>
+    <li><a href="tools/calculator.html">🧮 Calculator</a></li>
+    <li><a href="tools/graphing.html">📈 Graphing</a></li>
+    <li><a href="tools/stopwatch.html">⏱ Stopwatch</a></li>
+    <li><a href="tools/unit-converter.html">🔁 Unit Converter</a></li>
+    <li><a href="tools/equation-solver.html">🧠 Equation Solver</a></li>
+  </ul></div>
+  <div class="footer-col"><h4>People</h4><ul>
+    <li><a href="teacher/dashboard.html">👩‍🏫 Teachers</a></li>
+    <li><a href="student/portal.html">🎒 Students</a></li>
+    <li><a href="parent/portal.html">👨‍👩‍👧 Parents</a></li>
+    <li><a href="admin/index.html">🏢 School Admin</a></li>
+    <li><a href="community/forum.html">💬 Community</a></li>
+    <li><a href="community/resources.html">📚 Resources</a></li>
+  </ul></div>
+  <div class="footer-col"><h4>HMG Ecosystem</h4><ul>
+    <li><a href="https://hmgacademy.pages.dev">🎓 HMG Academy</a></li>
+    <li><a href="https://hmgconcepts.pages.dev">🏢 HMG Concepts</a></li>
+    <li><a href="docs/features.html">📖 Features Guide</a></li>
+    <li><a href="docs/deployment.html">🚀 Deployment</a></li>
+    <li><a href="docs/equipment-guide.html">🔬 Equipment Guide</a></li>
+    <li><a href="docs/changelog.html">📝 Changelog</a></li>
+  </ul></div>
+</div>
+<div class="footer-bot">
+  <p>© 2026 HMG Concepts. Built with <strong>100% free tools</strong> — no paid AI APIs.</p>
+  <p class="footer-tech">v7.0 · 125 working sims · 36 lab apparatus · Vanilla JS · SVG · Canvas · Service Worker · LocalStorage</p>
+</div></div></footer>
+<button class="btt" aria-label="Back to top">↑</button>
+<script>if('serviceWorker' in navigator){window.addEventListener('load',function(){navigator.serviceWorker.register('sw.js').catch(function(){})})}</script>
+<script src="assets/js/lab-equipment.js"></script>
+<script src="assets/js/lab-core.js"></script>
+<script src="assets/js/main.js"></script>
 </body></html>

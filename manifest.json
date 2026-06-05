@@ -1,1 +1,23 @@
-{"name":"HMG Academy Virtual Lab","short_name":"HMG Virtual Lab","description":"Free interactive STEM simulations for secondary schools","start_url":"/","display":"standalone","background_color":"#1a1a2e","theme_color":"#e94560","icons":[{"src":"/assets/images/hmg-academy-logo.png","sizes":"512x512","type":"image/png"}]}
+{
+  "name": "HMG Academy Virtual Lab v7",
+  "short_name": "HMG Lab v7",
+  "description": "125+ free interactive STEM simulations with realistic SVG lab equipment for secondary schools",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#1a1a2e",
+  "theme_color": "#e94560",
+  "lang": "en",
+  "icons": [
+    { "src": "assets/images/hmg-academy-logo.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "assets/images/hmg-academy-logo.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ],
+  "categories": ["education", "science"],
+  "shortcuts": [
+    { "name": "Physics Lab",          "url": "./subjects/physics/index.html" },
+    { "name": "Equipment Gallery",    "url": "./tools/equipment.html" },
+    { "name": "Periodic Table",       "url": "./tools/periodic-table.html" },
+    { "name": "Teacher Dashboard",    "url": "./teacher/dashboard.html" }
+  ]
+}
