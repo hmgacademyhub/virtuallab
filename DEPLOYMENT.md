@@ -1,16 +1,28 @@
-# Deployment Guide
+# 🚀 Deployment Guide — HMG Academy Virtual Lab v5
 
-## Option 1: Cloudflare Pages (60 seconds)
-1. Push lab-v2/ to a GitHub repository
-2. Cloudflare Dashboard → Pages → Connect to Git → Select repo
-3. Framework: None | Build output: /
-4. Deploy → Site live at your-domain.pages.dev
+## Option 1: Cloudflare Pages (60 seconds — RECOMMENDED)
+1. Push all lab-v5 files to a GitHub repository
+2. Go to [Cloudflare Pages](https://pages.cloudflare.com) → Create a project → Connect to Git
+3. Select your repository
+4. Framework preset: **None** | Build output directory: **/** (root)
+5. Click **Save and Deploy**
+6. Site live at: `https://your-project.pages.dev`
 
 ## Option 2: GitHub Pages
-Settings → Pages → Deploy from main branch at root
+1. Push to GitHub → Settings → Pages → Deploy from `main` branch at `/` (root)
+2. Available at: `https://username.github.io/repo/`
 
 ## Option 3: Local
-python3 -m http.server 8000
+```bash
+cd lab-v5 && python3 -m http.server 8000
+# Visit http://localhost:8000
+```
 
 ## Post-Deploy Verification
-Visit: / (Home), /subjects/physics/index.html (Physics), /teacher/dashboard.html (Teacher), /student/portal.html (Student), /tools/periodic-table.html (Tools), /parent/portal.html (Parent)
+Verify these URLs:
+- `/` — Homepage
+- `/subjects/physics/index.html` — Physics lab
+- `/subjects/physics/pendulum.html` — Working pendulum sim
+- `/tools/periodic-table.html` — Working periodic table
+- `/teacher/dashboard.html` — Teacher dashboard
+- `/student/portal.html` — Student portal
