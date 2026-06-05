@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Parent Portal — HMG Academy Virtual Lab</title>
+<meta name="description" content="Monitor your child's learning progress on HMG Academy Virtual Lab.">
+<link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
+<div class="brand-banner">👨‍👩‍👧 HMG Academy Parent Portal — <a href="../index.html" style="color:#ffd700;">Back to Home</a></div>
+<main id="main-content">
+  <section class="page-hero"><div class="container"><h1>👨‍👩‍👧 Parent Portal</h1><p>Monitor your child's learning journey — simulations completed, quiz scores, badges earned, and time spent learning.</p></div></section>
+  <section class="section">
+    <div class="container" style="max-width:600px;">
+      <div class="dash-section">
+        <h3>🔍 Find Your Child</h3>
+        <p style="font-size:.875rem;color:var(--hmg-text-light);margin-bottom:1rem;">Enter your child's name or student ID (provided by their teacher) to view their progress.</p>
+        <div class="form-group"><label>Student Name or ID</label><input type="text" id="search-student" placeholder="e.g., John Doe"></div>
+        <button id="search-btn" class="btn btn-primary">View Progress</button>
+      </div>
+      <div id="parent-results" class="dash-section" style="display:none;">
+        <h3>📊 Learning Progress</h3>
+        <div id="student-info"></div>
+        <div style="margin-top:1rem;padding-top:1rem;border-top:1px solid #eee;">
+          <p style="font-size:.875rem;color:var(--hmg-text-lighter);">Detailed progress tracking shows simulations completed, quiz scores, time spent, and badges earned.</p>
+        </div>
+      </div>
+      <div class="dash-section" style="margin-top:1.5rem;">
+        <h3>❓ About This Portal</h3>
+        <p style="font-size:.875rem;color:var(--hmg-text-light);line-height:1.7;">The Parent Portal gives you visibility into your child's learning journey. Ask their teacher for the student ID. All data is stored locally in the browser — no information is sent to any server.</p>
+      </div>
+    </div>
+  </section>
+</main>
+<footer class="site-footer"><div class="container"><div class="footer-bottom"><p>&copy; 2026 HMG Concepts.</p></div></div></footer>
+<script src="../assets/js/lab-core.js"></script>
+<script>
+document.getElementById('search-btn').addEventListener('click', function() {
+  const q = document.getElementById('search-student').value.trim().toLowerCase();
+  if (!q) return;
+  const students = HMG.getState('students') || [];
+  const match = students.find(s => s.name.toLowerCase().includes(q) || s.id.toLowerCase().includes(q));
+  const results = document.getElementById('parent-results');
+  if (match) {
+    results.style.display = 'block';
+    document.getElementById('student-info').innerHTML = '<p><strong>Name:</strong> ' + match.name + '<br><strong>ID:</strong> ' + match.id + '<br><strong>Level:</strong> ' + (match.level||1) + ' · <strong>Points:</strong> ' + (match.points||0) + '</p><p><strong>Badges:</strong> ' + (HMG.getStudentBadges(match.id).length ? HMG.getStudentBadges(match.id).map(b=>b.icon+' '+b.name).join(', ') : 'None yet') + '</p>';
+    HMG.toast('✅ Student found!', 'success');
+  } else {
+    results.style.display = 'none';
+    HMG.toast('⚠️ Student not found. Check with the teacher.', 'warning');
+  }
+});
+</script>
+</body>
+</html>
