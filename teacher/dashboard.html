@@ -2,118 +2,58 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Teacher Dashboard — HMG Academy Virtual Lab v2</title>
-<meta name="description" content="Teacher dashboard for managing classes, students, and tracking progress.">
-<link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg">
+<title>Teacher Dashboard &mdash; HMG Academy Virtual Lab v5</title>
+<meta name="description" content="Manage classes and students.">
+<meta name="author" content="Adewale Samson Adeagbo &mdash; HMG Concepts">
+<link rel="icon" href="../assets/images/hmg-academy-logo.png">
 <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <body>
-<a href="#main-content" class="skip-link">Skip to main content</a>
-<div class="brand-banner">👩‍🏫 HMG Academy Teacher Dashboard — <a href="../index.html" style="color:#ffd700;">Back to Home</a></div>
-<header class="site-header">
-  <div class="container header-inner">
-    <a href="../index.html" class="logo">
-      <svg width="42" height="42" viewBox="0 0 42 42"><rect width="42" height="42" rx="10" fill="#e94560"/><path d="M21 8L34 17V34H8V17L21 8Z" fill="white" opacity=".92"/><circle cx="21" cy="23" r="7" fill="#1a1a2e" opacity=".8"/><path d="M14 30L18 23L21 27L24 23L28 30" stroke="#e94560" stroke-width="1.8" fill="none"/></svg>
-      <div class="logo-brand"><span class="logo-name">HMG Academy</span><span class="logo-tagline">Teacher Dashboard</span></div>
-    </a>
-    <nav class="main-nav"><ul id="nav-menu" class="nav-menu"><li><a href="../index.html">Home</a></li><li><a href="dashboard.html" class="active">Dashboard</a></li><li><a href="classroom.html">Classes</a></li><li><a href="assessments.html">Assessments</a></li><li><a href="reports.html">Reports</a></li><li><a href="../student/portal.html">Students</a></li></ul></nav>
-  </div>
-</header>
-<main id="main-content">
-  <section class="section">
-    <div class="container">
-      <h2 class="section-title">👩‍🏫 Teacher Control Panel</h2>
-      <p class="section-desc" style="margin-bottom:2rem;">Manage classes, track student progress, create assessments, and export reports — all at zero cost.</p>
-
-      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-bottom:2rem;">
-        <div class="dash-section" style="text-align:center;"><h3 id="stat-students" style="font-size:2rem;color:var(--hmg-accent);">0</h3><p style="color:var(--hmg-text-lighter);font-size:.875rem;">Students</p></div>
-        <div class="dash-section" style="text-align:center;"><h3 id="stat-classes" style="font-size:2rem;color:var(--hmg-accent);">0</h3><p style="color:var(--hmg-text-lighter);font-size:.875rem;">Classes</p></div>
-        <div class="dash-section" style="text-align:center;"><h3 style="font-size:2rem;color:var(--hmg-accent);">50+</h3><p style="color:var(--hmg-text-lighter);font-size:.875rem;">Simulations</p></div>
-        <div class="dash-section" style="text-align:center;"><h3 style="font-size:2rem;color:var(--hmg-accent);">₦0</h3><p style="color:var(--hmg-text-lighter);font-size:.875rem;">Platform Cost</p></div>
-      </div>
-
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;">
-        <div class="dash-section">
-          <h3>📚 Create a Class</h3>
-          <form id="class-form">
-            <div class="form-group"><label>Class Name</label><input type="text" id="cls-name" placeholder="e.g., SSS1 Gold" required></div>
-            <div class="form-group"><label>Teacher Name</label><input type="text" id="cls-teacher" placeholder="e.g., Mr. Adeagbo"></div>
-            <div class="form-group"><label>Subject</label><select id="cls-subject"><option>General Science</option><option>Physics</option><option>Chemistry</option><option>Biology</option><option>Mathematics</option></select></div>
-            <button type="submit" class="btn btn-primary btn-block">Create Class</button>
-          </form>
-        </div>
-        <div class="dash-section">
-          <h3>👤 Add Students</h3>
-          <form id="student-form">
-            <div class="form-group"><label>Student Name</label><input type="text" id="stu-name" placeholder="Full name" required></div>
-            <div class="form-group"><label>Class</label><select id="stu-class"><option value="">No class</option></select></div>
-            <button type="submit" class="btn btn-primary btn-block">Add Student</button>
-          </form>
-          <div style="margin-top:1rem;padding-top:1rem;border-top:1px solid #eee;">
-            <h4 style="font-size:.875rem;font-weight:600;margin-bottom:.5rem;">📥 Bulk Import</h4>
-            <textarea id="bulk-students" rows="2" style="width:100%;padding:.5rem;border:1px solid var(--hmg-border);border-radius:8px;font-size:.8125rem;font-family:monospace;" placeholder="John Doe, CLS-ABC&#10;Jane Smith, CLS-ABC"></textarea>
-            <button id="bulk-import" class="btn btn-sm btn-ghost" style="margin-top:.25rem;">Import</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="dash-section" style="margin-top:1.5rem;">
-        <h3>📋 Your Classes</h3>
-        <div id="class-list"><div class="empty-state"><div class="empty-icon">📚</div><h3>No Classes Yet</h3><p>Create your first class above. Each class gets a unique code.</p></div></div>
-      </div>
-
-      <div class="dash-section">
-        <h3>📖 Enterprise Features (100% Free)</h3>
-        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;">
-          <div class="feature-card"><h3 class="feature-title">🏫 School Deployment</h3><p class="feature-desc">Deploy school-wide with admin controls, bulk CSV import, custom branding — all free.</p></div>
-          <div class="feature-card"><h3 class="feature-title">📝 Assessment Builder</h3><p class="feature-desc">Create quizzes with auto-grading, time limits, randomisation, and instant feedback.</p></div>
-          <div class="feature-card"><h3 class="feature-title">📊 Analytics</h3><p class="feature-desc">Track engagement, identify at-risk learners, measure outcomes across classes.</p></div>
-        </div>
-        <p style="margin-top:1rem;font-size:.875rem;color:var(--hmg-text-light);">⬇️ Download reports from the buttons below:</p>
-        <div style="display:flex;gap:.5rem;margin-top:.5rem;">
-          <button onclick="alert('CSV report downloaded!')" class="btn btn-sm btn-primary">📥 Students Report</button>
-          <button onclick="alert('CSV report downloaded!')" class="btn btn-sm btn-ghost">📥 Progress Report</button>
-        </div>
-      </div>
-    </div>
-  </section>
-</main>
-<footer class="site-footer"><div class="container"><div class="footer-bottom"><p>&copy; 2026 HMG Concepts. Built with free tools.</p></div></div></footer>
-<button id="back-to-top" class="back-to-top">↑</button>
-<script src="../assets/js/lab-core.js"></script>
+<div class="topbar">🏫 <a href="https://hmgconcepts.pages.dev">HMG Concepts</a> Ecosystem &mdash; Built by <a href="https://cssadewale.pages.dev">Adewale Samson Adeagbo</a> &middot; <a href="https://hmgacademy.pages.dev">HMG Academy</a></div>
+<header class="header"><div class="container header-inner">
+<a href="../index.html" class="logo"><img src="../assets/images/hmg-academy-logo.png" alt="HMG Academy" height="42" style="height:42px;border-radius:4px;"></a>
+<nav class="nav"><button class="nav-toggle"><span></span><span></span><span></span></button><ul class="nav-menu"><li><a href="../index.html">Home</a></li>
+<li><a href="../subjects/physics/index.html">Physics</a></li>
+<li><a href="../subjects/chemistry/index.html">Chemistry</a></li>
+<li><a href="../subjects/biology/index.html">Biology</a></li>
+<li><a href="../subjects/mathematics/index.html">Maths</a></li>
+<li><a href="../subjects/general-science/index.html">Science</a></li>
+<li><a href="../teacher/dashboard.html">Teachers</a></li></ul></nav></div></header>
+<main>
+<section class="page-hero"><div class="container"><h1>👩‍🏫 Teacher Control Panel</h1><p>Manage classes, track student progress, create assessments, and generate reports — all at zero cost with LocalStorage persistence.</p></div></section>
+<section class="section"><div class="container">
+<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-bottom:2rem;">
+<div class="dash-stat"><h3 id="stat-s">0</h3><p>Students</p></div>
+<div class="dash-stat"><h3 id="stat-c">0</h3><p>Classes</p></div>
+<div class="dash-stat"><h3>60+</h3><p>Simulations</p></div>
+<div class="dash-stat"><h3>₦0</h3><p>Platform Cost</p></div></div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;">
+<div class="dash-box"><h3>📚 Create a Class</h3>
+<form id="cf"><div class="form-g"><label>Class Name</label><input type="text" id="cn" placeholder="e.g., SSS1 Gold" required></div>
+<div class="form-g"><label>Teacher Name</label><input type="text" id="ct" placeholder="Mr. Adeagbo"></div>
+<button type="submit" class="btn btn-pri btn-block">Create Class →</button></form></div>
+<div class="dash-box"><h3>👤 Add Student</h3>
+<form id="sf"><div class="form-g"><label>Student Name</label><input type="text" id="sn" placeholder="Full name" required></div>
+<div class="form-g"><label>Class</label><select id="sc"><option value="">No class</option></select></div>
+<button type="submit" class="btn btn-pri btn-block">Add Student</button></form></div></div>
+<div class="dash-box"><h3>📋 Your Classes</h3><div id="cl"><div class="empty-state"><div style="font-size:3rem;">📚</div><h3>No Classes Yet</h3><p>Create your first class using the form above.</p></div></div></div>
+<div class="dash-box"><h3>📖 Enterprise Features (100% Free)</h3><div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;">
+<div class="f-card"><h3 class="f-title">🏫 School-Wide Deployment</h3><p class="f-desc">Deploy across your entire school with admin controls, bulk CSV import, and centralized monitoring via Cloudflare Pages or GitHub Pages.</p></div>
+<div class="f-card"><h3 class="f-title">📝 Assessment Builder</h3><p class="f-desc">Create custom quizzes linked to simulations. Auto-grading with instant feedback, time limits, and randomization.</p></div>
+<div class="f-card"><h3 class="f-title">📊 Advanced Analytics</h3><p class="f-desc">Track engagement, identify at-risk learners, and measure learning outcomes across classes and subjects.</p></div>
+</div></div></div></section>
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-  function updateStats() {
-    document.getElementById('stat-students').textContent = (HMG.getState('students') || []).length;
-    document.getElementById('stat-classes').textContent = HMG.getClasses().length;
-  }
-  function renderClasses() {
-    const list = document.getElementById('class-list');
-    const classes = HMG.getClasses();
-    if (!classes.length) { list.innerHTML = '<div class="empty-state"><div class="empty-icon">📚</div><h3>No Classes Yet</h3><p>Create your first class above.</p></div>'; return; }
-    list.innerHTML = classes.map(c => '<div style="background:var(--hmg-bg);border:1px solid var(--hmg-border-light);border-radius:8px;padding:.75rem;margin-bottom:.5rem;display:flex;justify-content:space-between;align-items:center;"><div><strong>' + c.name + '</strong> · ' + c.teacher + ' · Code: <code style="background:#f5f7fa;padding:1px 6px;border-radius:4px;">' + c.code + '</code></div><div style="font-size:.8125rem;color:#888;">' + (c.studentIds ? c.studentIds.length : 0) + ' students</div></div>').join('');
-  }
-  function populateClasses() {
-    const sel = document.getElementById('stu-class');
-    sel.innerHTML = '<option value="">No class</option>' + HMG.getClasses().map(c => '<option value="' + c.id + '">' + c.name + '</option>').join('');
-  }
-  document.getElementById('class-form').addEventListener('submit', function(e) {
-    e.preventDefault();
-    HMG.createClass(document.getElementById('cls-name').value.trim(), document.getElementById('cls-teacher').value.trim(), document.getElementById('cls-subject').value);
-    this.reset(); renderClasses(); populateClasses(); updateStats();
-  });
-  document.getElementById('student-form').addEventListener('submit', function(e) {
-    e.preventDefault();
-    HMG.addStudent({ name: document.getElementById('stu-name').value.trim(), classId: document.getElementById('stu-class').value });
-    this.reset(); updateStats();
-  });
-  document.getElementById('bulk-import').addEventListener('click', function() {
-    const lines = document.getElementById('bulk-students').value.trim().split('\n');
-    lines.forEach(l => { const p = l.split(','); if (p[0].trim()) HMG.addStudent({ name: p[0].trim(), classId: p[1] ? p[1].trim() : '' }); });
-    updateStats();
-  });
-  renderClasses(); populateClasses(); updateStats();
-});
-</script>
+document.addEventListener('DOMContentLoaded',function(){
+function us(){document.getElementById('stat-s').textContent=(HMG.getState('students')||[]).length;document.getElementById('stat-c').textContent=HMG.getClasses().length;}
+function rc(){var ls=document.getElementById('cl'),cs=HMG.getClasses();if(!cs.length){ls.innerHTML='<div class="empty-state"><div style="font-size:3rem;">📚</div><h3>No Classes Yet</h3></div>';return;}
+ls.innerHTML=cs.map(function(c){return '<div style="background:var(--bg);border:1px solid var(--bl);border-radius:8px;padding:.75rem;margin-bottom:.5rem;display:flex;justify-content:space-between;"><div><strong>'+c.name+'</strong> &middot; '+c.teacher+'</div><div>Code: <code style="background:var(--bg2);padding:1px 6px;border-radius:4px;">'+c.code+'</code></div></div>';}).join('');}
+function pc(){var s=document.getElementById('sc');s.innerHTML='<option value="">No class</option>'+HMG.getClasses().map(function(c){return '<option value="'+c.id+'">'+c.name+'</option>';}).join('');}
+document.getElementById('cf').addEventListener('submit',function(e){e.preventDefault();HMG.createClass(document.getElementById('cn').value.trim(),document.getElementById('ct').value.trim());this.reset();rc();pc();us();});
+document.getElementById('sf').addEventListener('submit',function(e){e.preventDefault();HMG.addStudent({name:document.getElementById('sn').value.trim(),classId:document.getElementById('sc').value});this.reset();us();});
+rc();pc();us();});
+</script></main>
+<footer class="footer"><div class="container"><div class="footer-grid"><div class="footer-brand"><img src="../assets/images/hmg-academy-logo.png" alt="HMG Academy" height="35" style="height:35px;border-radius:3px;margin-bottom:.5rem;"><p>An initiative of <a href="https://hmgconcepts.pages.dev" style="color:var(--g);">HMG Concepts</a></p><p class="footer-tag">"Learning Deliberately. Teaching Authentically."</p></div><div class="footer-col"><h4>Labs</h4><ul><li><a href="../subjects/physics/index.html">⚛️ Physics</a></li><li><a href="../subjects/chemistry/index.html">🧪 Chemistry</a></li><li><a href="../subjects/biology/index.html">🧬 Biology</a></li><li><a href="../subjects/mathematics/index.html">📐 Maths</a></li></ul></div><div class="footer-col"><h4>Tools</h4><ul><li><a href="../tools/periodic-table.html">📊 Periodic Table</a></li><li><a href="../tools/calculator.html">🧮 Calculator</a></li><li><a href="../tools/graphing.html">📈 Graphing</a></li></ul></div><div class="footer-col"><h4>People</h4><ul><li><a href="../teacher/dashboard.html">👩‍🏫 Teachers</a></li><li><a href="../student/portal.html">🎒 Students</a></li><li><a href="../parent/portal.html">👨‍👩‍👧 Parents</a></li></ul></div><div class="footer-col"><h4>HMG</h4><ul><li><a href="https://hmgacademy.pages.dev">🎓 Academy</a></li><li><a href="https://hmgconcepts.pages.dev">🏢 Concepts</a></li><li><a href="https://github.com/cssadewale">🐙 GitHub</a></li></ul></div></div><div class="footer-bot"><p>&copy; 2026 HMG Concepts. Built with <strong>100% free tools</strong>.</p></div></div></footer>
+<button class="btt">&uarr;</button>
+<script src="../assets/js/lab-core.js"></script>
 </body>
 </html>
