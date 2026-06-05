@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Simple Pendulum — HMG Academy Virtual Lab v6</title>
-<meta name="description" content="Adjust length and gravity, record period to verify T = 2π√(L/g) — a standard WAEC/NECO physics practical.">
+<title>Gas Laws — HMG Academy Virtual Lab v6</title>
+<meta name="description" content="Explore Boyle, Charles and Gay-Lussac with an interactive gas chamber.">
 <meta name="author" content="Adewale Samson Adeagbo — HMG Concepts">
 <meta name="theme-color" content="#e94560">
-<meta property="og:title" content="Simple Pendulum — HMG Academy Virtual Lab v6">
-<meta property="og:description" content="Adjust length and gravity, record period to verify T = 2π√(L/g) — a standard WAEC/NECO physics practical.">
+<meta property="og:title" content="Gas Laws — HMG Academy Virtual Lab v6">
+<meta property="og:description" content="Explore Boyle, Charles and Gay-Lussac with an interactive gas chamber.">
 <meta property="og:type" content="website">
 <link rel="icon" href="../../assets/images/hmg-academy-logo.png">
 <link rel="manifest" href="../../manifest.json">
@@ -42,24 +42,16 @@
   </nav>
 </div></header>
 <main id="main"><section class="page-hero" style="background:linear-gradient(135deg,#1a1a2e,#16213e)"><div class="container">
-  <p class="breadcrumb"><a href="../../index.html">Home</a> / <a href="index.html">physics</a> / Simple Pendulum</p>
-  <h1>🕰️ Simple Pendulum</h1><p>Adjust length and gravity, record period to verify T = 2π√(L/g) — a standard WAEC/NECO physics practical.</p>
+  <p class="breadcrumb"><a href="../../index.html">Home</a> / <a href="index.html">physics</a> / Gas Laws</p>
+  <h1>🌡️ Gas Laws</h1><p>Explore Boyle, Charles and Gay-Lussac with an interactive gas chamber.</p>
 </div></section>
 <section class="section"><div class="container">
   <div class="sim-player">
     <div class="sim-cv"><canvas id="sim" width="700" height="380"></canvas></div>
-    <div class="sim-ct"><label>Length <span id="v1">120</span>px<input type="range" id="c1" min="50" max="200" value="120"></label>
-<label>Gravity <span id="v2">9.8</span> m/s²<input type="range" id="c2" min="1" max="20" step="0.1" value="9.8"></label>
-<label>Bob mass <span id="v3">15</span>px<input type="range" id="c3" min="5" max="30" value="15"></label>
-<button id="b1" class="btn btn-sm btn-pri">⏸ Pause</button>
-<button id="b2" class="btn btn-sm btn-ghost">↺ Reset</button>
-<button id="b3" class="btn btn-sm btn-ghost">📊 Record</button>
-<button id="b4" class="btn btn-sm btn-success">⬇️ Export CSV</button></div>
-    <div class="sim-info"><div id="dt1" style="display:none" class="data-t"><h4>📊 Recorded data</h4><table><thead><tr><th>#</th><th>L(px)</th><th>T(s)</th><th>T²(s²)</th></tr></thead><tbody id="db1"></tbody></table></div>
-<h4>📖 Theory</h4><p>The period <code>T</code> of a simple pendulum depends only on length <code>L</code> and gravity <code>g</code>:</p>
-<p class="formula">T = 2π√(L/g)</p>
-<p>Plotting T² versus L gives a straight line with slope = 4π²/g, from which the gravitational acceleration g can be calculated.</p>
-<h4>🎯 WAEC Practical</h4><p>Standard WAEC/NECO practical: measure T for ≥ 5 lengths, record in a table, plot T² vs L, find slope, calculate g.</p></div>
+    <div class="sim-ct"><label>Volume V <span id="v1">100</span><input type="range" id="c1" min="40" max="200" value="100"></label>
+<label>Temperature T <span id="v2">300</span> K<input type="range" id="c2" min="100" max="600" value="300"></label></div>
+    <div class="sim-info"><h4>📖 Theory</h4><p class="formula">PV/T = constant (ideal gas)</p>
+<p>Boyle: PV=const at constant T · Charles: V/T=const at constant P · Gay-Lussac: P/T=const at constant V.</p></div>
   </div>
 
   <div class="dash-box"><h3>📝 Quick Quiz (auto-graded)</h3><div id="quiz"></div></div>
@@ -72,28 +64,21 @@
 </div></section>
 <script>
 (function(){var c=document.getElementById('sim');if(!c)return;var cx=c.getContext('2d');
-var a=Math.PI/4,v=0,l=120,g=9.8,m=15,r=1,d=[];
-document.getElementById('c1').oninput=function(){l=+this.value;document.getElementById('v1').textContent=l;};
-document.getElementById('c2').oninput=function(){g=+this.value;document.getElementById('v2').textContent=g;};
-document.getElementById('c3').oninput=function(){m=+this.value;document.getElementById('v3').textContent=m;};
-document.getElementById('b1').onclick=function(){r=!r;this.textContent=r?'⏸ Pause':'▶ Resume';};
-document.getElementById('b2').onclick=function(){a=Math.PI/4;v=0;r=1;document.getElementById('b1').textContent='⏸ Pause';};
-document.getElementById('b3').onclick=function(){var p=2*Math.PI*Math.sqrt(l/(g*10));d.push({L:l,T:+p.toFixed(3),T2:+(p*p).toFixed(3)});
-  var t=document.getElementById('dt1'),b=document.getElementById('db1');t.style.display='block';b.innerHTML=d.map(function(x,i){return '<tr><td>'+(i+1)+'</td><td>'+x.L+'</td><td>'+x.T+'</td><td>'+x.T2+'</td></tr>';}).join('');HMG.toast('Recorded','success');};
-document.getElementById('b4').onclick=function(){if(!d.length){HMG.toast('No data yet','warn');return;}var rows=[['#','L(px)','T(s)','T2(s2)']].concat(d.map(function(x,i){return [i+1,x.L,x.T,x.T2];}));HMG.downloadCSV('pendulum-data.csv',rows);};
-(function loop(){if(r){var acc=(-g/l)*Math.sin(a);v+=acc*0.05;v*=0.997;a+=v*0.05;}
-cx.clearRect(0,0,700,380);HMG.drawGrid(cx,700,380,50);
-var px=350,py=55,s=l*2,bx=px+s*Math.sin(a),by=py+s*Math.cos(a);
-cx.beginPath();cx.moveTo(px,py);cx.lineTo(bx,by);cx.strokeStyle='#555';cx.lineWidth=1.5;cx.stroke();
-cx.beginPath();cx.arc(px,py,8,0,Math.PI*2);cx.fillStyle='#333';cx.fill();
-cx.beginPath();cx.arc(bx,by,m,0,Math.PI*2);var gr=cx.createRadialGradient(bx-4,by-4,2,bx,by,m);gr.addColorStop(0,'#ff6b81');gr.addColorStop(1,'#e94560');cx.fillStyle=gr;cx.fill();
-cx.fillStyle='#333';cx.font='13px Inter';cx.textAlign='left';
-cx.fillText('Angle: '+(a*180/Math.PI).toFixed(1)+'°',10,22);
-var p=2*Math.PI*Math.sqrt(l/(g*10));cx.fillText('T: '+p.toFixed(3)+'s · T²: '+(p*p).toFixed(3)+'s²',10,40);cx.fillText('Data points: '+d.length,10,58);
+var V=100,T=300;
+document.getElementById('c1').oninput=function(){V=+this.value;document.getElementById('v1').textContent=V;};
+document.getElementById('c2').oninput=function(){T=+this.value;document.getElementById('v2').textContent=T;};
+var parts=[];for(var i=0;i<30;i++)parts.push({x:Math.random(),y:Math.random(),vx:(Math.random()-.5),vy:(Math.random()-.5)});
+(function loop(){cx.clearRect(0,0,700,380);
+var w=V*2,h=180,bx=350-w/2,by=100;
+cx.strokeStyle='#333';cx.lineWidth=2;cx.strokeRect(bx,by,w,h);
+var spd=Math.sqrt(T/300)*1.2;
+parts.forEach(function(p){p.x+=p.vx*spd*0.01;p.y+=p.vy*spd*0.01;if(p.x<0||p.x>1)p.vx*=-1;if(p.y<0||p.y>1)p.vy*=-1;
+cx.beginPath();cx.arc(bx+p.x*w,by+p.y*h,3,0,Math.PI*2);cx.fillStyle='#e94560';cx.fill();});
+var P=T*100/V;cx.fillStyle='#333';cx.font='14px Inter';cx.fillText('P = nRT/V (relative) = '+P.toFixed(1),10,22);cx.fillText('V = '+V+' · T = '+T+' K',10,42);
 requestAnimationFrame(loop);})();})();
 document.addEventListener('DOMContentLoaded',function(){
-  if(HMG.CONTENT['physics'] && HMG.CONTENT['physics']['pendulum']){
-    HMG.renderQuiz('#quiz', HMG.CONTENT['physics']['pendulum'].quiz, {sim:'physics/pendulum'});
+  if(HMG.CONTENT['physics'] && HMG.CONTENT['physics']['gaslaws']){
+    HMG.renderQuiz('#quiz', HMG.CONTENT['physics']['gaslaws'].quiz, {sim:'physics/gaslaws'});
   }
 });
 </script></main>
