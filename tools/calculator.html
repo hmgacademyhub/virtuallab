@@ -2,67 +2,133 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Scientific Calculator &mdash; HMG Academy Virtual Lab v5</title>
-<meta name="description" content="Free online calculator.">
-<meta name="author" content="Adewale Samson Adeagbo &mdash; HMG Concepts">
+<title>Scientific Calculator — HMG Academy Virtual Lab v6</title>
+<meta name="description" content="Free scientific calculator with trig, log, powers.">
+<meta name="author" content="Adewale Samson Adeagbo — HMG Concepts">
+<meta name="theme-color" content="#e94560">
+<meta property="og:title" content="Scientific Calculator — HMG Academy Virtual Lab v6">
+<meta property="og:description" content="Free scientific calculator with trig, log, powers.">
+<meta property="og:type" content="website">
 <link rel="icon" href="../assets/images/hmg-academy-logo.png">
+<link rel="manifest" href="../manifest.json">
 <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <body>
-<div class="topbar">🏫 <a href="https://hmgconcepts.pages.dev">HMG Concepts</a> Ecosystem &mdash; Built by <a href="https://cssadewale.pages.dev">Adewale Samson Adeagbo</a> &middot; <a href="https://hmgacademy.pages.dev">HMG Academy</a></div>
+<a href="#main" class="skip-link">Skip to content</a>
+<div class="topbar">
+  <span>🏫 <a href="https://hmgconcepts.pages.dev">HMG Concepts</a> Ecosystem — Built by <a href="https://cssadewale.pages.dev">Adewale Samson Adeagbo</a> · <a href="https://hmgacademy.pages.dev">HMG Academy</a> · Lagos, Nigeria</span>
+  <span class="top-actions">
+    <button id="theme-toggle" aria-label="Toggle dark mode">🌙</button>
+    <a href="../student/portal.html" style="color:#fff;background:rgba(255,255,255,.08);border-radius:6px;padding:2px 8px;border:1px solid rgba(255,255,255,.15);font-size:.72rem">🎒 Student</a>
+    <a href="../teacher/dashboard.html" style="color:#fff;background:rgba(255,255,255,.08);border-radius:6px;padding:2px 8px;border:1px solid rgba(255,255,255,.15);font-size:.72rem">👩‍🏫 Teacher</a>
+  </span>
+</div>
 <header class="header"><div class="container header-inner">
-<a href="../index.html" class="logo"><img src="../assets/images/hmg-academy-logo.png" alt="HMG Academy" height="42" style="height:42px;border-radius:4px;"></a>
-<nav class="nav"><button class="nav-toggle"><span></span><span></span><span></span></button><ul class="nav-menu"><li><a href="../index.html">Home</a></li>
-<li><a href="../subjects/physics/index.html">Physics</a></li>
-<li><a href="../subjects/chemistry/index.html">Chemistry</a></li>
-<li><a href="../subjects/biology/index.html">Biology</a></li>
-<li><a href="../subjects/mathematics/index.html">Maths</a></li>
-<li><a href="../subjects/general-science/index.html">Science</a></li>
-<li><a href="../teacher/dashboard.html">Teachers</a></li></ul></nav></div></header>
-<main>
-<section class="page-hero" style="background:linear-gradient(135deg,#1a1a2e,#e94560)"><div class="container"><h1>🧮 Scientific Calculator</h1><p>Full-featured calculator for laboratory and classroom calculations.</p></div></section>
-<section class="section"><div class="container" style="max-width:380px;">
-<div style="background:var(--bg);padding:1.5rem;border-radius:var(--r3);box-shadow:var(--s-lg);">
-<div style="background:var(--bd);padding:1rem;border-radius:var(--r);margin-bottom:1rem;text-align:right;min-height:80px;">
-<div id="ce" style="color:rgba(255,255,255,0.5);font-size:.85rem;min-height:24px;"></div>
-<div id="cd" style="color:#fff;font-size:2rem;font-weight:600;font-family:monospace;">0</div></div>
-<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:6px;">
-<button class="cb" data-a="c" style="padding:12px;border:1px solid #eee;border-radius:8px;cursor:pointer;font-weight:600;background:#f5f5f5;">C</button>
-<button class="cb" data-a="b" style="padding:12px;border:1px solid #eee;border-radius:8px;cursor:pointer;background:#f5f5f5;">⌫</button>
-<button class="cb" data-a="p" style="padding:12px;border:1px solid #eee;border-radius:8px;cursor:pointer;background:#f5f5f5;">%</button>
-<button class="cb" data-a="/" style="padding:12px;border:1px solid #eee;border-radius:8px;cursor:pointer;color:#e94560;font-weight:600;">/</button>
-<button class="cb" data-a="7" style="padding:12px;border:1px solid #eee;border-radius:8px;cursor:pointer;">7</button>
-<button class="cb" data-a="8" style="padding:12px;border:1px solid #eee;border-radius:8px;cursor:pointer;">8</button>
-<button class="cb" data-a="9" style="padding:12px;border:1px solid #eee;border-radius:8px;cursor:pointer;">9</button>
-<button class="cb" data-a="*" style="padding:12px;border:1px solid #eee;border-radius:8px;cursor:pointer;color:#e94560;font-weight:600;">x</button>
-<button class="cb" data-a="4" style="padding:12px;border:1px solid #eee;border-radius:8px;cursor:pointer;">4</button>
-<button class="cb" data-a="5" style="padding:12px;border:1px solid #eee;border-radius:8px;cursor:pointer;">5</button>
-<button class="cb" data-a="6" style="padding:12px;border:1px solid #eee;border-radius:8px;cursor:pointer;">6</button>
-<button class="cb" data-a="-" style="padding:12px;border:1px solid #eee;border-radius:8px;cursor:pointer;color:#e94560;font-weight:600;">-</button>
-<button class="cb" data-a="1" style="padding:12px;border:1px solid #eee;border-radius:8px;cursor:pointer;">1</button>
-<button class="cb" data-a="2" style="padding:12px;border:1px solid #eee;border-radius:8px;cursor:pointer;">2</button>
-<button class="cb" data-a="3" style="padding:12px;border:1px solid #eee;border-radius:8px;cursor:pointer;">3</button>
-<button class="cb" data-a="+" style="padding:12px;border:1px solid #eee;border-radius:8px;cursor:pointer;color:#e94560;font-weight:600;">+</button>
-<button class="cb" data-a="n" style="padding:12px;border:1px solid #eee;border-radius:8px;cursor:pointer;background:#f5f5f5;">±</button>
-<button class="cb" data-a="0" style="padding:12px;border:1px solid #eee;border-radius:8px;cursor:pointer;">0</button>
-<button class="cb" data-a="." style="padding:12px;border:1px solid #eee;border-radius:8px;cursor:pointer;">.</button>
-<button class="cb eq" data-a="=" style="padding:12px;border:1px solid #eee;border-radius:8px;cursor:pointer;background:#e94560;color:#fff;font-weight:700;">=</button>
-</div></div></div></section>
+  <a href="../index.html" class="logo">
+    <img src="../assets/images/hmg-academy-logo.png" alt="HMG Academy logo" height="42" style="height:42px;border-radius:4px">
+    <span class="logo-brand"><span class="logo-name">HMG Academy</span><span class="logo-tagline">Virtual Lab v6</span></span>
+  </a>
+  <nav class="nav"><button class="nav-toggle" aria-label="Open menu"><span></span><span></span><span></span></button>
+    <ul class="nav-menu">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../subjects/physics/index.html">Physics</a></li>
+      <li><a href="../subjects/chemistry/index.html">Chemistry</a></li>
+      <li><a href="../subjects/biology/index.html">Biology</a></li>
+      <li><a href="../subjects/mathematics/index.html">Maths</a></li>
+      <li><a href="../subjects/general-science/index.html">Science</a></li>
+      <li><a href="../tools/periodic-table.html">Tools</a></li>
+      <li><a href="../teacher/dashboard.html" class="nav-cta">Teachers</a></li>
+    </ul>
+  </nav>
+</div></header>
+<main id="main"><section class="page-hero"><div class="container">
+  <p class="breadcrumb"><a href="../index.html">Home</a> / Tools / Calculator</p>
+  <h1>🧮 Scientific Calculator</h1>
+  <p>Full scientific calculator with trig, log, powers, memory and history.</p>
+</div></section>
+<section class="section"><div class="container" style="max-width:480px">
+  <div class="dash-box">
+    <input type="text" id="disp" readonly style="width:100%;font-size:1.6rem;text-align:right;padding:1rem;border-radius:8px;border:1px solid var(--b);background:var(--bg-alt);margin-bottom:.75rem">
+    <div id="hist" style="font-size:.75rem;color:var(--tl2);height:20px;text-align:right;margin-bottom:.5rem"></div>
+    <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:.4rem">
+      <button class="btn btn-ghost btn-sm" data-k="sin(">sin</button>
+      <button class="btn btn-ghost btn-sm" data-k="cos(">cos</button>
+      <button class="btn btn-ghost btn-sm" data-k="tan(">tan</button>
+      <button class="btn btn-ghost btn-sm" data-k="log10(">log</button>
+      <button class="btn btn-ghost btn-sm" data-k="sqrt(">√</button>
+      <button class="btn btn-ghost btn-sm" data-k="(">(</button>
+      <button class="btn btn-ghost btn-sm" data-k=")">)</button>
+      <button class="btn btn-ghost btn-sm" data-k="**">x^y</button>
+      <button class="btn btn-ghost btn-sm" data-k="PI">π</button>
+      <button class="btn btn-danger btn-sm" id="clr">C</button>
+      <button class="btn btn-ghost" data-k="7">7</button><button class="btn btn-ghost" data-k="8">8</button><button class="btn btn-ghost" data-k="9">9</button>
+      <button class="btn btn-ghost" data-k="/">÷</button><button class="btn btn-ghost" data-k="*">×</button>
+      <button class="btn btn-ghost" data-k="4">4</button><button class="btn btn-ghost" data-k="5">5</button><button class="btn btn-ghost" data-k="6">6</button>
+      <button class="btn btn-ghost" data-k="-">−</button><button class="btn btn-ghost" data-k="+">+</button>
+      <button class="btn btn-ghost" data-k="1">1</button><button class="btn btn-ghost" data-k="2">2</button><button class="btn btn-ghost" data-k="3">3</button>
+      <button class="btn btn-ghost" data-k=".">.</button><button class="btn btn-pri" id="eq">=</button>
+      <button class="btn btn-ghost" data-k="0" style="grid-column:span 2">0</button>
+      <button class="btn btn-ghost" id="back">⌫</button>
+      <button class="btn btn-ghost" data-k="E">EXP</button>
+      <button class="btn btn-ghost" id="ans">ANS</button>
+    </div>
+  </div>
+</div></section>
 <script>
-(function(){var d=document.getElementById('cd'),e=document.getElementById('ce');var cur='0',pr='',op=null;
-document.querySelectorAll('.cb').forEach(function(b){b.addEventListener('click',function(){var a=this.dataset.a;
-if(a==='c'){cur='0';e.textContent='';d.textContent='0';return;}
-if(a==='b'){cur=cur.length>1?cur.slice(0,-1):'0';d.textContent=cur;return;}
-if(a==='n'){cur=cur[0]==='-'?cur.slice(1):'-'+cur;d.textContent=cur;return;}
-if(a==='p'){cur=String(parseFloat(cur)/100);d.textContent=cur;return;}
-if(a==='='){if(!op)return;var n1=parseFloat(pr),n2=parseFloat(cur),r=0;
-if(op==='/')r=n2?n1/n2:0;else if(op==='*')r=n1*n2;else if(op==='-')r=n1-n2;else r=n1+n2;
-e.textContent=pr+' '+op+' '+cur+' =';d.textContent=String(r);cur=d.textContent;pr='';op=null;return;}
-if(['+','-','*','/'].indexOf(a)>=0){pr=cur;op=a;e.textContent=pr+' '+op;d.textContent='0';cur='0';return;}
-cur=cur==='0'?a:cur+a;d.textContent=cur;});});})();
+(function(){var d=document.getElementById('disp'),h=document.getElementById('hist'),ans=0;
+document.querySelectorAll('[data-k]').forEach(function(b){b.onclick=function(){d.value+=b.getAttribute('data-k');};});
+document.getElementById('clr').onclick=function(){d.value='';h.textContent='';};
+document.getElementById('back').onclick=function(){d.value=d.value.slice(0,-1);};
+document.getElementById('eq').onclick=function(){try{var r=(new Function('with(Math){return '+d.value.replace(/PI/g,'PI')+'}'))();h.textContent=d.value+' =';d.value=String(r);ans=r;}catch(e){HMG.toast('Error in expression','error');}};
+document.getElementById('ans').onclick=function(){d.value+=ans;};
+})();
 </script></main>
-<footer class="footer"><div class="container"><div class="footer-grid"><div class="footer-brand"><img src="../assets/images/hmg-academy-logo.png" alt="HMG Academy" height="35" style="height:35px;border-radius:3px;margin-bottom:.5rem;"><p>An initiative of <a href="https://hmgconcepts.pages.dev" style="color:var(--g);">HMG Concepts</a></p><p class="footer-tag">"Learning Deliberately. Teaching Authentically."</p></div><div class="footer-col"><h4>Labs</h4><ul><li><a href="../subjects/physics/index.html">⚛️ Physics</a></li><li><a href="../subjects/chemistry/index.html">🧪 Chemistry</a></li><li><a href="../subjects/biology/index.html">🧬 Biology</a></li><li><a href="../subjects/mathematics/index.html">📐 Maths</a></li></ul></div><div class="footer-col"><h4>Tools</h4><ul><li><a href="../tools/periodic-table.html">📊 Periodic Table</a></li><li><a href="../tools/calculator.html">🧮 Calculator</a></li><li><a href="../tools/graphing.html">📈 Graphing</a></li></ul></div><div class="footer-col"><h4>People</h4><ul><li><a href="../teacher/dashboard.html">👩‍🏫 Teachers</a></li><li><a href="../student/portal.html">🎒 Students</a></li><li><a href="../parent/portal.html">👨‍👩‍👧 Parents</a></li></ul></div><div class="footer-col"><h4>HMG</h4><ul><li><a href="https://hmgacademy.pages.dev">🎓 Academy</a></li><li><a href="https://hmgconcepts.pages.dev">🏢 Concepts</a></li><li><a href="https://github.com/cssadewale">🐙 GitHub</a></li></ul></div></div><div class="footer-bot"><p>&copy; 2026 HMG Concepts. Built with <strong>100% free tools</strong>.</p></div></div></footer>
-<button class="btt">&uarr;</button>
+<footer class="footer"><div class="container">
+<div class="footer-grid">
+  <div class="footer-brand">
+    <img src="../assets/images/hmg-academy-logo.png" alt="HMG Academy" height="35" style="height:35px;border-radius:3px;margin-bottom:.5rem">
+    <p>An initiative of <a href="https://hmgconcepts.pages.dev" style="color:var(--g)">HMG Concepts</a></p>
+    <p class="footer-tag">"Learning Deliberately. Teaching Authentically."</p>
+    <p style="font-size:.8rem;color:rgba(255,255,255,.4);margin-top:.5rem">Founded by <a href="https://cssadewale.pages.dev" style="color:#fff">Adewale Samson Adeagbo</a> · Lagos, Nigeria · v6.0 (2026)</p>
+  </div>
+  <div class="footer-col"><h4>Labs</h4><ul>
+    <li><a href="../subjects/physics/index.html">⚛️ Physics</a></li>
+    <li><a href="../subjects/chemistry/index.html">🧪 Chemistry</a></li>
+    <li><a href="../subjects/biology/index.html">🧬 Biology</a></li>
+    <li><a href="../subjects/mathematics/index.html">📐 Maths</a></li>
+    <li><a href="../subjects/general-science/index.html">🌍 Science</a></li>
+  </ul></div>
+  <div class="footer-col"><h4>Tools</h4><ul>
+    <li><a href="../tools/periodic-table.html">📊 Periodic Table</a></li>
+    <li><a href="../tools/calculator.html">🧮 Calculator</a></li>
+    <li><a href="../tools/graphing.html">📈 Graphing</a></li>
+    <li><a href="../tools/stopwatch.html">⏱ Stopwatch</a></li>
+    <li><a href="../tools/unit-converter.html">🔁 Unit Converter</a></li>
+    <li><a href="../tools/equation-solver.html">🧠 Equation Solver</a></li>
+  </ul></div>
+  <div class="footer-col"><h4>People</h4><ul>
+    <li><a href="../teacher/dashboard.html">👩‍🏫 Teachers</a></li>
+    <li><a href="../student/portal.html">🎒 Students</a></li>
+    <li><a href="../parent/portal.html">👨‍👩‍👧 Parents</a></li>
+    <li><a href="../admin/index.html">🏢 School Admin</a></li>
+    <li><a href="../community/forum.html">💬 Community</a></li>
+    <li><a href="../community/resources.html">📚 Resources</a></li>
+  </ul></div>
+  <div class="footer-col"><h4>HMG Ecosystem</h4><ul>
+    <li><a href="https://hmgacademy.pages.dev">🎓 HMG Academy</a></li>
+    <li><a href="https://hmgconcepts.pages.dev">🏢 HMG Concepts</a></li>
+    <li><a href="../docs/features.html">📖 Features Guide</a></li>
+    <li><a href="../docs/deployment.html">🚀 Deployment</a></li>
+    <li><a href="../docs/changelog.html">📝 Changelog</a></li>
+    <li><a href="https://github.com/hmgacademyhub/virtuallab">🐙 GitHub</a></li>
+  </ul></div>
+</div>
+<div class="footer-bot">
+  <p>© 2026 HMG Concepts. Built with <strong>100% free tools</strong> — no paid AI APIs.</p>
+  <p class="footer-tech">Vanilla JS · HTML5 · CSS3 · Canvas API · Service Worker · LocalStorage · Cloudflare / Vercel / GitHub Pages</p>
+</div></div></footer>
+<button class="btt" aria-label="Back to top">↑</button>
+<script>if('serviceWorker' in navigator){window.addEventListener('load',function(){navigator.serviceWorker.register('../sw.js').catch(function(){})})}</script>
 <script src="../assets/js/lab-core.js"></script>
-</body>
-</html>
+<script src="../assets/js/main.js"></script>
+</body></html>

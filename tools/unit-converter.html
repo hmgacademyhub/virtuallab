@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Function Graphing — HMG Academy Virtual Lab v6</title>
-<meta name="description" content="Plot multiple functions simultaneously.">
+<title>Unit Converter — HMG Academy Virtual Lab v6</title>
+<meta name="description" content="Convert between common SI units.">
 <meta name="author" content="Adewale Samson Adeagbo — HMG Concepts">
 <meta name="theme-color" content="#e94560">
-<meta property="og:title" content="Function Graphing — HMG Academy Virtual Lab v6">
-<meta property="og:description" content="Plot multiple functions simultaneously.">
+<meta property="og:title" content="Unit Converter — HMG Academy Virtual Lab v6">
+<meta property="og:description" content="Convert between common SI units.">
 <meta property="og:type" content="website">
 <link rel="icon" href="../assets/images/hmg-academy-logo.png">
 <link rel="manifest" href="../manifest.json">
@@ -42,30 +42,37 @@
   </nav>
 </div></header>
 <main id="main"><section class="page-hero"><div class="container">
-  <p class="breadcrumb"><a href="../index.html">Home</a> / Tools / Graphing</p>
-  <h1>📈 Graphing Tool</h1><p>Plot up to 3 functions simultaneously with adjustable range.</p>
+<p class="breadcrumb"><a href="../index.html">Home</a> / Tools / Unit Converter</p>
+<h1>🔁 Unit Converter</h1><p>Convert length, mass, temperature, time, energy, volume and more.</p>
 </div></section>
-<section class="section"><div class="container">
-<div class="dash-box">
-<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:.6rem;margin-bottom:.6rem">
-<label>f₁(x) = <input id="f1" value="sin(x)"></label>
-<label>f₂(x) = <input id="f2" value="x/3"></label>
-<label>f₃(x) = <input id="f3" value=""></label>
-</div>
-<label>x-range ± <span id="rv">10</span><input type="range" id="rng" min="2" max="50" value="10"></label>
-<canvas id="g" width="900" height="500" style="width:100%;border:1px solid var(--bl);border-radius:8px;background:var(--bg-alt)"></canvas>
-</div>
-</div></section>
+<section class="section"><div class="container" style="max-width:640px"><div class="dash-box">
+<label>Category<select id="cat">
+<option>Length</option><option>Mass</option><option>Time</option><option>Temperature</option><option>Energy</option><option>Volume</option><option>Area</option><option>Pressure</option>
+</select></label>
+<div class="form-row">
+<div class="form-g"><label>From</label><input type="number" id="iv" value="1"><select id="fu"></select></div>
+<div class="form-g"><label>To</label><input type="text" id="ov" readonly><select id="tu"></select></div>
+</div></div></div></section>
 <script>
-(function(){var c=document.getElementById('g');if(!c)return;var cx=c.getContext('2d');var R=10;
-document.getElementById('rng').oninput=function(){R=+this.value;document.getElementById('rv').textContent=R;};
-function ev(f,x){if(!f)return NaN;try{return (new Function('x','with(Math){return '+f+'}'))(x);}catch(e){return NaN;}}
-(function loop(){cx.clearRect(0,0,900,500);HMG.drawGrid(cx,900,500,50);
-cx.strokeStyle='#666';cx.beginPath();cx.moveTo(0,250);cx.lineTo(900,250);cx.moveTo(450,0);cx.lineTo(450,500);cx.stroke();
-['#e94560','#27ae60','#3498db'].forEach(function(col,i){var f=document.getElementById('f'+(i+1)).value;cx.strokeStyle=col;cx.lineWidth=2;cx.beginPath();var first=true;
-for(var px=0;px<900;px++){var x=(px-450)/(900/(2*R)),y=ev(f,x);if(!isFinite(y)){first=true;continue;}var py=250-y*(500/(4*R));if(first){cx.moveTo(px,py);first=false;}else cx.lineTo(px,py);}cx.stroke();});
-cx.fillStyle='#333';cx.font='13px Inter';cx.fillText('x ∈ ['+(-R)+', '+R+']',10,20);
-requestAnimationFrame(loop);})();})();
+(function(){var U={
+ Length:{m:1,km:1000,cm:0.01,mm:0.001,inch:0.0254,ft:0.3048,yd:0.9144,mile:1609.34,nm:1e-9},
+ Mass:{kg:1,g:0.001,mg:1e-6,t:1000,lb:0.4536,oz:0.02835},
+ Time:{s:1,min:60,h:3600,day:86400,ms:0.001},
+ Temperature:{C:'C',F:'F',K:'K'},
+ Energy:{J:1,kJ:1000,cal:4.184,kcal:4184,eV:1.602e-19,kWh:3600000},
+ Volume:{L:1,mL:0.001,m3:1000,gal:3.7854,cup:0.2366},
+ Area:{m2:1,km2:1e6,cm2:1e-4,ha:1e4,acre:4046.86},
+ Pressure:{Pa:1,kPa:1000,atm:101325,bar:100000,mmHg:133.322,psi:6894.76}
+};
+function opts(g){var o='';Object.keys(U[g]).forEach(function(k){o+='<option>'+k+'</option>';});return o;}
+function update(){var g=document.getElementById('cat').value,f=document.getElementById('fu').value,t=document.getElementById('tu').value,v=+document.getElementById('iv').value;
+var r=0;if(g==='Temperature'){var k=f==='C'?v+273.15:f==='F'?(v-32)*5/9+273.15:v;r=t==='C'?k-273.15:t==='F'?(k-273.15)*9/5+32:k;}
+else{r=v*U[g][f]/U[g][t];}
+document.getElementById('ov').value=r.toPrecision(6);}
+function repop(){var g=document.getElementById('cat').value;document.getElementById('fu').innerHTML=opts(g);document.getElementById('tu').innerHTML=opts(g);document.getElementById('tu').selectedIndex=1;update();}
+['cat','fu','tu','iv'].forEach(function(id){document.getElementById(id).addEventListener('input',function(){if(id==='cat')repop();else update();});});
+repop();
+})();
 </script></main>
 <footer class="footer"><div class="container">
 <div class="footer-grid">

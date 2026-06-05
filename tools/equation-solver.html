@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Function Graphing — HMG Academy Virtual Lab v6</title>
-<meta name="description" content="Plot multiple functions simultaneously.">
+<title>Equation Solver — HMG Academy Virtual Lab v6</title>
+<meta name="description" content="Solve linear, quadratic and simultaneous equations.">
 <meta name="author" content="Adewale Samson Adeagbo — HMG Concepts">
 <meta name="theme-color" content="#e94560">
-<meta property="og:title" content="Function Graphing — HMG Academy Virtual Lab v6">
-<meta property="og:description" content="Plot multiple functions simultaneously.">
+<meta property="og:title" content="Equation Solver — HMG Academy Virtual Lab v6">
+<meta property="og:description" content="Solve linear, quadratic and simultaneous equations.">
 <meta property="og:type" content="website">
 <link rel="icon" href="../assets/images/hmg-academy-logo.png">
 <link rel="manifest" href="../manifest.json">
@@ -42,30 +42,39 @@
   </nav>
 </div></header>
 <main id="main"><section class="page-hero"><div class="container">
-  <p class="breadcrumb"><a href="../index.html">Home</a> / Tools / Graphing</p>
-  <h1>📈 Graphing Tool</h1><p>Plot up to 3 functions simultaneously with adjustable range.</p>
+<p class="breadcrumb"><a href="../index.html">Home</a> / Tools / Equation Solver</p>
+<h1>🧠 Equation Solver</h1><p>Solve linear, quadratic and simultaneous equations step-by-step.</p>
 </div></section>
-<section class="section"><div class="container">
-<div class="dash-box">
-<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:.6rem;margin-bottom:.6rem">
-<label>f₁(x) = <input id="f1" value="sin(x)"></label>
-<label>f₂(x) = <input id="f2" value="x/3"></label>
-<label>f₃(x) = <input id="f3" value=""></label>
+<section class="section"><div class="container" style="max-width:640px">
+<div class="tabs">
+<button class="tab" data-tab="lin">Linear</button>
+<button class="tab" data-tab="quad">Quadratic</button>
+<button class="tab" data-tab="sim">Simultaneous (2×2)</button>
 </div>
-<label>x-range ± <span id="rv">10</span><input type="range" id="rng" min="2" max="50" value="10"></label>
-<canvas id="g" width="900" height="500" style="width:100%;border:1px solid var(--bl);border-radius:8px;background:var(--bg-alt)"></canvas>
-</div>
+<div class="tab-panel" data-tab="lin"><div class="dash-box">
+<p>Solve ax + b = 0:</p>
+<div class="form-row"><div class="form-g"><label>a</label><input id="la" type="number" value="2"></div><div class="form-g"><label>b</label><input id="lb" type="number" value="-6"></div></div>
+<button class="btn btn-pri" id="ls">Solve</button>
+<div id="lr" style="margin-top:1rem"></div></div></div>
+<div class="tab-panel" data-tab="quad"><div class="dash-box">
+<p>Solve ax² + bx + c = 0:</p>
+<div class="form-row"><div class="form-g"><label>a</label><input id="qa" type="number" value="1"></div><div class="form-g"><label>b</label><input id="qb" type="number" value="-3"></div></div>
+<div class="form-g"><label>c</label><input id="qc" type="number" value="2"></div>
+<button class="btn btn-pri" id="qs">Solve</button>
+<div id="qr" style="margin-top:1rem"></div></div></div>
+<div class="tab-panel" data-tab="sim"><div class="dash-box">
+<p>Solve a₁x + b₁y = c₁; a₂x + b₂y = c₂</p>
+<div class="form-row"><div class="form-g"><label>a₁</label><input id="s1" type="number" value="1"></div><div class="form-g"><label>b₁</label><input id="s2" type="number" value="1"></div></div>
+<div class="form-row"><div class="form-g"><label>c₁</label><input id="s3" type="number" value="5"></div><div class="form-g"><label>a₂</label><input id="s4" type="number" value="2"></div></div>
+<div class="form-row"><div class="form-g"><label>b₂</label><input id="s5" type="number" value="-1"></div><div class="form-g"><label>c₂</label><input id="s6" type="number" value="4"></div></div>
+<button class="btn btn-pri" id="ss">Solve</button><div id="sr" style="margin-top:1rem"></div></div></div>
 </div></section>
 <script>
-(function(){var c=document.getElementById('g');if(!c)return;var cx=c.getContext('2d');var R=10;
-document.getElementById('rng').oninput=function(){R=+this.value;document.getElementById('rv').textContent=R;};
-function ev(f,x){if(!f)return NaN;try{return (new Function('x','with(Math){return '+f+'}'))(x);}catch(e){return NaN;}}
-(function loop(){cx.clearRect(0,0,900,500);HMG.drawGrid(cx,900,500,50);
-cx.strokeStyle='#666';cx.beginPath();cx.moveTo(0,250);cx.lineTo(900,250);cx.moveTo(450,0);cx.lineTo(450,500);cx.stroke();
-['#e94560','#27ae60','#3498db'].forEach(function(col,i){var f=document.getElementById('f'+(i+1)).value;cx.strokeStyle=col;cx.lineWidth=2;cx.beginPath();var first=true;
-for(var px=0;px<900;px++){var x=(px-450)/(900/(2*R)),y=ev(f,x);if(!isFinite(y)){first=true;continue;}var py=250-y*(500/(4*R));if(first){cx.moveTo(px,py);first=false;}else cx.lineTo(px,py);}cx.stroke();});
-cx.fillStyle='#333';cx.font='13px Inter';cx.fillText('x ∈ ['+(-R)+', '+R+']',10,20);
-requestAnimationFrame(loop);})();})();
+(function(){
+document.getElementById('ls').onclick=function(){var a=+document.getElementById('la').value,b=+document.getElementById('lb').value;if(a===0){document.getElementById('lr').innerHTML='No unique solution';return;}document.getElementById('lr').innerHTML='<strong>x = '+(-b/a).toFixed(4)+'</strong><br><span style="font-size:.85rem;color:#888">Step: '+a+'x = '+(-b)+' → x = '+(-b)+'/'+a+'</span>';};
+document.getElementById('qs').onclick=function(){var a=+document.getElementById('qa').value,b=+document.getElementById('qb').value,c=+document.getElementById('qc').value;var d=b*b-4*a*c;var html='Discriminant = '+d.toFixed(4)+'<br>';if(d>0){var r1=(-b+Math.sqrt(d))/(2*a),r2=(-b-Math.sqrt(d))/(2*a);html+='<strong>x = '+r1.toFixed(4)+' or x = '+r2.toFixed(4)+'</strong>';}else if(d===0){html+='<strong>x = '+(-b/(2*a)).toFixed(4)+' (repeated)</strong>';}else{var re=(-b/(2*a)).toFixed(4),im=(Math.sqrt(-d)/(2*a)).toFixed(4);html+='<strong>x = '+re+' ± '+im+'i (complex)</strong>';}document.getElementById('qr').innerHTML=html;};
+document.getElementById('ss').onclick=function(){var v=[1,2,3,4,5,6].map(function(i){return +document.getElementById('s'+i).value;});var a1=v[0],b1=v[1],c1=v[2],a2=v[3],b2=v[4],c2=v[5];var det=a1*b2-b1*a2;if(det===0){document.getElementById('sr').innerHTML='No unique solution';return;}var x=(c1*b2-b1*c2)/det,y=(a1*c2-c1*a2)/det;document.getElementById('sr').innerHTML='<strong>x = '+x.toFixed(4)+', y = '+y.toFixed(4)+'</strong><br><span style="font-size:.85rem;color:#888">det = '+det+'</span>';};
+})();
 </script></main>
 <footer class="footer"><div class="container">
 <div class="footer-grid">
