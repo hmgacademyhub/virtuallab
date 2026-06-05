@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Pendulum Lab &mdash; HMG Academy Virtual Lab v5</title>
+<meta name="description" content="Interactive pendulum simulation.">
+<meta name="author" content="Adewale Samson Adeagbo">
+<link rel="icon" href="../assets/images/hmg-academy-logo.png">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+<div class="topbar">🏫 <a href="https://hmgconcepts.pages.dev">HMG Concepts</a> &mdash; <a href="https://cssadewale.pages.dev">Adewale Samson Adeagbo</a></div>
+<header class="header"><div class="container header-inner">
+<a href="../index.html" class="logo"><img src="../assets/images/hmg-academy-logo.png" alt="HMG Academy" height="42" style="height:42px;border-radius:4px;"></a>
+<nav class="nav"><button class="nav-toggle"><span></span><span></span><span></span></button><ul class="nav-menu"><li><a href="../index.html">Home</a></li>
+<li><a href="../subjects/physics/index.html">Physics</a></li>
+<li><a href="../subjects/chemistry/index.html">Chemistry</a></li>
+<li><a href="../subjects/biology/index.html">Biology</a></li>
+<li><a href="../subjects/mathematics/index.html">Maths</a></li></ul></nav></div></header>
+<main>
+<section class="page-hero" style="background:linear-gradient(135deg,#1a1a2e,#16213e)"><div class="container"><h1>🕰️ Simple Pendulum Lab</h1><p>Investigate T = 2π√(L/g). Adjust length, record period, plot T² vs L to determine g. Standard WAEC/NECO physics practical.</p></div></section>
+<section class="section"><div class="container">
+<div class="sim-player">
+<div class="sim-cv"><canvas id="s1" width="700" height="380"></canvas></div>
+<div class="sim-ct">
+<label>Length: <span id="v1">120</span>px <input type="range" id="c1" min="50" max="200" value="120"></label>
+<label>Gravity: <span id="v2">9.8</span> <input type="range" id="c2" min="1" max="20" step="0.1" value="9.8"></label>
+<label>Mass: <span id="v3">15</span> <input type="range" id="c3" min="5" max="30" value="15"></label>
+<button id="b1" class="btn btn-sm btn-pri">⏸ Pause</button>
+<button id="b2" class="btn btn-sm btn-ghost">↺ Reset</button>
+<button id="b3" class="btn btn-sm btn-ghost">📊 Record Data</button>
+</div>
+<div class="sim-info">
+<div id="dt1" style="display:none" class="data-t"><h4>📊 Recorded Data</h4><table><thead><tr><th>#</th><th>L(px)</th><th>T(s)</th><th>T²(s²)</th></tr></thead><tbody id="db1"></tbody></table></div>
+<p style="margin-top:.5rem"><strong>📖 Theory:</strong> The period T of a simple pendulum depends only on its length L and gravity g. The relationship T = 2π√(L/g) can be verified by plotting a graph of T² against L. The slope of this graph equals 4π²/g, from which the value of g can be calculated.</p>
+<p><strong>🎯 WAEC Practical:</strong> This is a standard WAEC/NECO physics practical question. Students are required to measure the period for different pendulum lengths, record their readings in a table, plot T² against L, determine the slope, and calculate the acceleration due to gravity.</p>
+</div></div>
+<div style="display:flex;gap:1rem;justify-content:center;margin-top:1rem"><a href="index.html" class="btn btn-ghost">← Back to Physics Lab</a></div></div></section>
+<script>
+(function(){var c=document.getElementById('s1');if(!c)return;var cx=c.getContext('2d');var a=Math.PI/4,v=0,l=120,g=9.8,m=15,r=1,d=[];
+document.getElementById('c1').oninput=function(){l=+this.value;document.getElementById('v1').textContent=l;};
+document.getElementById('c2').oninput=function(){g=+this.value;document.getElementById('v2').textContent=g;};
+document.getElementById('c3').oninput=function(){m=+this.value;document.getElementById('v3').textContent=m;};
+document.getElementById('b1').onclick=function(){r=!r;this.textContent=r?'⏸ Pause':'▶ Resume';};
+document.getElementById('b2').onclick=function(){a=Math.PI/4;v=0;r=1;document.getElementById('b1').textContent='⏸ Pause';};
+document.getElementById('b3').onclick=function(){var p=2*Math.PI*Math.sqrt(l/(g*10));d.push({L:l,T:p.toFixed(3),T2:(p*p).toFixed(3)});
+var tb=document.getElementById('dt1'),bd=document.getElementById('db1');tb.style.display='block';bd.innerHTML=d.map(function(x,i){return '<tr><td>'+(i+1)+'</td><td>'+x.L+'</td><td>'+x.T+'</td><td>'+x.T2+'</td></tr>';}).join('');};
+(function loop(){if(r){var acc=(-g/l)*Math.sin(a);v+=acc*0.05;v*=0.997;a+=v*0.05;}
+cx.clearRect(0,0,700,380);var px=350,py=55,s=l*2,bx=px+s*Math.sin(a),by=py+s*Math.cos(a);
+for(var x=0;x<=700;x+=50){cx.beginPath();cx.moveTo(x,0);cx.lineTo(x,380);cx.strokeStyle='#eee';cx.stroke();}
+for(var y=0;y<=380;y+=50){cx.beginPath();cx.moveTo(0,y);cx.lineTo(700,y);cx.stroke();}
+cx.beginPath();cx.moveTo(px,py);cx.lineTo(bx,by);cx.strokeStyle='#555';cx.lineWidth=1.5;cx.stroke();
+cx.beginPath();cx.arc(px,py,8,0,Math.PI*2);cx.fillStyle='#333';cx.fill();
+cx.beginPath();cx.arc(bx,by,m,0,Math.PI*2);var gr=cx.createRadialGradient(bx-4,by-4,2,bx,by,m);gr.addColorStop(0,'#ff6b81');gr.addColorStop(1,'#e94560');cx.fillStyle=gr;cx.fill();
+cx.fillStyle='#555';cx.font='13px Inter';cx.textAlign='left';cx.fillText('Angle: '+(a*180/Math.PI).toFixed(1)+'°',10,22);
+var p=2*Math.PI*Math.sqrt(l/(g*10));cx.fillText('T: '+p.toFixed(3)+'s T²: '+(p*p).toFixed(3)+'s²',10,40);cx.fillText('Data: '+d.length+' pts',10,58);
+requestAnimationFrame(loop);})();})();
+</script></main>
+<footer class="footer"><div class="container"><div class="footer-bot"><p>&copy; 2026 HMG Concepts</p></div></div></footer>
+<button class="btt">&uarr;</button>
+<script src="../assets/js/lab-core.js"></script>
+</body>
+</html>

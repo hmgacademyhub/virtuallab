@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Projectile Motion &mdash; HMG Academy Virtual Lab v5</title>
+<meta name="description" content="Interactive projectile simulation.">
+<meta name="author" content="Adewale Samson Adeagbo">
+<link rel="icon" href="../assets/images/hmg-academy-logo.png">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+<div class="topbar">🏫 <a href="https://hmgconcepts.pages.dev">HMG Concepts</a> &mdash; <a href="https://cssadewale.pages.dev">Adewale Samson Adeagbo</a></div>
+<header class="header"><div class="container header-inner">
+<a href="../index.html" class="logo"><img src="../assets/images/hmg-academy-logo.png" alt="HMG Academy" height="42" style="height:42px;border-radius:4px;"></a>
+<nav class="nav"><button class="nav-toggle"><span></span><span></span><span></span></button><ul class="nav-menu"><li><a href="../index.html">Home</a></li>
+<li><a href="../subjects/physics/index.html">Physics</a></li>
+<li><a href="../subjects/chemistry/index.html">Chemistry</a></li>
+<li><a href="../subjects/biology/index.html">Biology</a></li>
+<li><a href="../subjects/mathematics/index.html">Maths</a></li></ul></nav></div></header>
+<main>
+<section class="page-hero" style="background:linear-gradient(135deg,#1a1a2e,#16213e)"><div class="container"><h1>🎯 Projectile Motion</h1><p>Study parabolic trajectories. Adjust launch angle and speed, observe range, height, and time of flight.</p></div></section>
+<section class="section"><div class="container">
+<div class="sim-player"><div class="sim-cv"><canvas id="s2" width="700" height="380"></canvas></div>
+<div class="sim-ct"><label>Angle: <span id="v4">45</span>° <input type="range" id="c4" min="0" max="90" value="45"></label>
+<label>Speed: <span id="v5">30</span> <input type="range" id="c5" min="5" max="60" value="30"></label>
+<button id="b4" class="btn btn-sm btn-pri">🚀 Launch</button><button id="b5" class="btn btn-sm btn-ghost">↺ Clear All</button></div>
+<div class="sim-info"><p><strong>📖 Theory:</strong> A projectile follows a parabolic path under gravity. R = v₀²sin(2θ)/g, H = v₀²sin²θ/(2g).<br><strong>🎯 JAMB Prep:</strong> Angle of 45° gives maximum range.</p></div></div>
+<div style="text-align:center"><a href="index.html" class="btn btn-ghost">← Back to Physics Lab</a></div></div></section>
+<script>
+(function(){var c=document.getElementById('s2');if(!c)return;var cx=c.getContext('2d');var a=45,s=30,p=[];
+document.getElementById('c4').oninput=function(){a=+this.value;document.getElementById('v4').textContent=a;};
+document.getElementById('c5').oninput=function(){s=+this.value;document.getElementById('v5').textContent=s;};
+document.getElementById('b4').onclick=function(){var r=a*Math.PI/180;p.push({x:60,y:c.height-50,vx:s*Math.cos(r)*3,vy:-(s*Math.sin(r)*3),trail:[]});};
+document.getElementById('b5').onclick=function(){p=[];};
+(function loop(){var g=c.height-50;p.forEach(function(q){q.trail.push({x:q.x,y:q.y});q.x+=q.vx*0.05;q.vy+=0.5;q.y+=q.vy*0.05;});p=p.filter(function(q){return q.y<g&&q.x>0&&q.x<700;});
+cx.clearRect(0,0,700,380);var sk=cx.createLinearGradient(0,0,0,g);sk.addColorStop(0,'#e8f4fd');sk.addColorStop(1,'#d4e8f0');cx.fillStyle=sk;cx.fillRect(0,0,700,g);
+cx.fillStyle='#4a7c3f';cx.fillRect(0,g,700,50);p.forEach(function(q){if(q.trail.length>1){cx.beginPath();cx.moveTo(q.trail[0].x,q.trail[0].y);for(var i=1;i<q.trail.length;i++)cx.lineTo(q.trail[i].x,q.trail[i].y);cx.strokeStyle='rgba(233,69,96,0.5)';cx.lineWidth=2;cx.stroke();}
+cx.beginPath();cx.arc(q.x,q.y,6,0,Math.PI*2);cx.fillStyle='#e94560';cx.fill();});
+if(p.length){cx.fillStyle='#333';cx.font='13px Inter';cx.textAlign='left';cx.fillText('Dist: '+((p[0].x-60)/5).toFixed(1)+'m',10,22);cx.fillText('Ht: '+Math.max(0,(g-p[0].y)/5).toFixed(1)+'m',10,40);}
+requestAnimationFrame(loop);})();})();
+</script></main>
+<footer class="footer"><div class="container"><div class="footer-bot"><p>&copy; 2026 HMG Concepts</p></div></div></footer>
+<button class="btt">&uarr;</button>
+<script src="../assets/js/lab-core.js"></script>
+</body>
+</html>

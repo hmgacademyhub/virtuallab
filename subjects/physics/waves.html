@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Wave Interference &mdash; HMG Academy Virtual Lab v5</title>
+<meta name="description" content="Interactive wave simulation.">
+<meta name="author" content="Adewale Samson Adeagbo">
+<link rel="icon" href="../assets/images/hmg-academy-logo.png">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+<div class="topbar">🏫 <a href="https://hmgconcepts.pages.dev">HMG Concepts</a> &mdash; <a href="https://cssadewale.pages.dev">Adewale Samson Adeagbo</a></div>
+<header class="header"><div class="container header-inner">
+<a href="../index.html" class="logo"><img src="../assets/images/hmg-academy-logo.png" alt="HMG Academy" height="42" style="height:42px;border-radius:4px;"></a>
+<nav class="nav"><button class="nav-toggle"><span></span><span></span><span></span></button><ul class="nav-menu"><li><a href="../index.html">Home</a></li>
+<li><a href="../subjects/physics/index.html">Physics</a></li>
+<li><a href="../subjects/chemistry/index.html">Chemistry</a></li>
+<li><a href="../subjects/biology/index.html">Biology</a></li>
+<li><a href="../subjects/mathematics/index.html">Maths</a></li></ul></nav></div></header>
+<main>
+<section class="page-hero" style="background:linear-gradient(135deg,#1a1a2e,#16213e)"><div class="container"><h1>🌊 Wave Interference</h1><p>Observe wave propagation with two overlapping waves. Adjust amplitude, wavelength, and frequency.</p></div></section>
+<section class="section"><div class="container">
+<div class="sim-player"><div class="sim-cv"><canvas id="s3" width="700" height="380"></canvas></div>
+<div class="sim-ct"><label>Amplitude: <span id="v6">60</span> <input type="range" id="c6" min="10" max="120" value="60"></label>
+<label>Wavelength: <span id="v7">120</span> <input type="range" id="c7" min="30" max="250" value="120"></label>
+<label>Freq: <span id="v8">2</span> <input type="range" id="c8" min="0.5" max="5" step="0.5" value="2"></label>
+<button id="b6" class="btn btn-sm btn-pri">⏸ Pause</button></div>
+<div class="sim-info"><p><strong>📖 Theory:</strong> The red wave is the primary wave. The blue dashed wave shows a secondary wave with 60% amplitude and a phase shift — demonstrating interference patterns in wave superposition.</p></div></div>
+<div style="text-align:center"><a href="index.html" class="btn btn-ghost">← Back to Physics Lab</a></div></div></section>
+<script>
+(function(){var c=document.getElementById('s3');if(!c)return;var cx=c.getContext('2d');var amp=60,wl=120,fq=2,ph=0,rn=1;
+document.getElementById('c6').oninput=function(){amp=+this.value;document.getElementById('v6').textContent=amp;};
+document.getElementById('c7').oninput=function(){wl=+this.value;document.getElementById('v7').textContent=wl;};
+document.getElementById('c8').oninput=function(){fq=+this.value;document.getElementById('v8').textContent=fq;};
+document.getElementById('b6').onclick=function(){rn=!rn;this.textContent=rn?'⏸ Pause':'▶ Resume';};
+(function loop(){if(rn)ph+=0.05;cx.clearRect(0,0,700,380);var m=190;
+for(var x=0;x<=700;x+=40){cx.beginPath();cx.moveTo(x,0);cx.lineTo(x,380);cx.strokeStyle='#f0f0f0';cx.stroke();}
+cx.beginPath();cx.moveTo(0,m);cx.lineTo(700,m);cx.strokeStyle='#ddd';cx.stroke();
+cx.beginPath();for(var x=0;x<=700;x++){var y=m+amp*Math.sin(2*Math.PI*(x/wl-ph)*(fq/2));x===0?cx.moveTo(x,y):cx.lineTo(x,y);}
+cx.strokeStyle='#e94560';cx.lineWidth=3;cx.stroke();
+cx.beginPath();for(var x=0;x<=700;x++){var y=m+amp*0.6*Math.sin(2*Math.PI*(x/(wl*0.7)-ph+0.25));x===0?cx.moveTo(x,y):cx.lineTo(x,y);}
+cx.strokeStyle='#4a90d9';cx.lineWidth=2;cx.setLineDash([5,5]);cx.stroke();cx.setLineDash([]);
+cx.fillStyle='#555';cx.font='12px Inter';cx.textAlign='left';cx.fillText('A:'+amp+' WL:'+wl+' F:'+fq,10,22);
+requestAnimationFrame(loop);})();})();
+</script></main>
+<footer class="footer"><div class="container"><div class="footer-bot"><p>&copy; 2026 HMG Concepts</p></div></div></footer>
+<button class="btt">&uarr;</button>
+<script src="../assets/js/lab-core.js"></script>
+</body>
+</html>

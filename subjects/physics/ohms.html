@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ohm's Law &mdash; HMG Academy Virtual Lab v5</title>
+<meta name="description" content="Interactive Ohm's Law simulation.">
+<meta name="author" content="Adewale Samson Adeagbo">
+<link rel="icon" href="../assets/images/hmg-academy-logo.png">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+<div class="topbar">🏫 <a href="https://hmgconcepts.pages.dev">HMG Concepts</a> &mdash; <a href="https://cssadewale.pages.dev">Adewale Samson Adeagbo</a></div>
+<header class="header"><div class="container header-inner">
+<a href="../index.html" class="logo"><img src="../assets/images/hmg-academy-logo.png" alt="HMG Academy" height="42" style="height:42px;border-radius:4px;"></a>
+<nav class="nav"><button class="nav-toggle"><span></span><span></span><span></span></button><ul class="nav-menu"><li><a href="../index.html">Home</a></li>
+<li><a href="../subjects/physics/index.html">Physics</a></li>
+<li><a href="../subjects/chemistry/index.html">Chemistry</a></li>
+<li><a href="../subjects/biology/index.html">Biology</a></li>
+<li><a href="../subjects/mathematics/index.html">Maths</a></li></ul></nav></div></header>
+<main>
+<section class="page-hero" style="background:linear-gradient(135deg,#1a1a2e,#16213e)"><div class="container"><h1>⚡ Ohm's Law & Electrical Circuits</h1><p>Verify V = IR. Adjust voltage and resistance, observe current and power in an animated circuit.</p></div></section>
+<section class="section"><div class="container">
+<div class="sim-player"><div class="sim-cv"><canvas id="s4" width="700" height="300"></canvas></div>
+<div class="sim-ct"><label>Voltage: <span id="v9">12</span>V <input type="range" id="c9" min="1" max="24" value="12"></label>
+<label>Resistance: <span id="v10">100</span>Ω <input type="range" id="c10" min="10" max="500" value="100"></label></div>
+<div class="sim-info"><p><strong>📖 Theory:</strong> Ohm's Law states V = IR. The animated dots show electron flow. Current I = V/R, Power P = V×I = V²/R. This is a fundamental concept for WAEC/NECO physics.</p></div></div>
+<div style="text-align:center"><a href="index.html" class="btn btn-ghost">← Back to Physics Lab</a></div></div></section>
+<script>
+(function(){var c=document.getElementById('s4');if(!c)return;var cx=c.getContext('2d');var vt=12,rt=100;
+document.getElementById('c9').oninput=function(){vt=+this.value;document.getElementById('v9').textContent=vt;};
+document.getElementById('c10').oninput=function(){rt=+this.value;document.getElementById('v10').textContent=rt;};
+(function loop(){var I=vt/rt,P=vt*I;cx.clearRect(0,0,700,300);var m=150;
+cx.strokeStyle='#333';cx.lineWidth=2;cx.beginPath();cx.moveTo(50,m);cx.lineTo(650,m);cx.stroke();
+cx.fillStyle='#e94560';cx.fillRect(350-30,m-25,60,10);cx.fillStyle='#0f3460';cx.fillRect(350-20,m-5,40,10);
+cx.fillStyle='#333';cx.font='11px Inter';cx.textAlign='center';cx.fillText('+',350-25,m+5);cx.fillText('-',350+20,m+5);cx.fillText(vt+'V',350,m+25);
+var rx=150;cx.beginPath();cx.moveTo(rx,m);for(var i=0;i<6;i++){cx.lineTo(rx+i*12+6,m-20);cx.lineTo(rx+(i+1)*12,m);}cx.stroke();cx.fillStyle='#8B4513';cx.fillText(rt+'Ω',rx+35,m-30);
+for(var i=0;i<3;i++){var p=(Date.now()/300+i*0.3)%1;var cx2=50+600*p;cx.beginPath();cx.arc(cx2,m,4,0,Math.PI*2);cx.fillStyle='rgba(233,69,96,'+(0.3+0.5*Math.sin(p*Math.PI))+')';cx.fill();}
+cx.fillStyle='#333';cx.font='14px Inter';cx.textAlign='left';cx.fillText('V='+vt+'V',10,22);cx.fillText('R='+rt+'Ω',10,40);cx.fillStyle='#e94560';cx.font='bold 16px Inter';cx.fillText('I='+I.toFixed(3)+'A',10,65);cx.fillStyle='#27ae60';cx.fillText('P='+P.toFixed(3)+'W',10,88);
+setTimeout(loop,50);})();})();
+</script></main>
+<footer class="footer"><div class="container"><div class="footer-bot"><p>&copy; 2026 HMG Concepts</p></div></div></footer>
+<button class="btt">&uarr;</button>
+<script src="../assets/js/lab-core.js"></script>
+</body>
+</html>
