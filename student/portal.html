@@ -2,80 +2,51 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Student Portal — HMG Academy Virtual Lab</title>
-<meta name="description" content="Student portal for tracking progress, earning badges, and viewing leaderboard.">
-<link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg">
+<title>Student Portal &mdash; HMG Academy Virtual Lab v5</title>
+<meta name="description" content="Track your learning progress.">
+<meta name="author" content="Adewale Samson Adeagbo &mdash; HMG Concepts">
+<link rel="icon" href="../assets/images/hmg-academy-logo.png">
 <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <body>
-<a href="#main-content" class="skip-link">Skip to main content</a>
-<div class="brand-banner">🎒 HMG Academy Student Portal — <a href="../index.html" style="color:#ffd700;">Back to Home</a></div>
-<header class="site-header">
-  <div class="container header-inner">
-    <a href="../index.html" class="logo"><svg width="42" height="42" viewBox="0 0 42 42"><rect width="42" height="42" rx="10" fill="#e94560"/><path d="M21 8L34 17V34H8V17L21 8Z" fill="white" opacity=".92"/><circle cx="21" cy="23" r="7" fill="#1a1a2e" opacity=".8"/><path d="M14 30L18 23L21 27L24 23L28 30" stroke="#e94560" stroke-width="1.8" fill="none"/></svg><div class="logo-brand"><span class="logo-name">HMG Academy</span><span class="logo-tagline">Student Portal</span></div></a>
-    <nav class="main-nav"><ul class="nav-menu"><li><a href="../index.html">Home</a></li><li><a href="portal.html" class="active">My Portal</a></li><li><a href="../subjects/physics/index.html">Labs</a></li><li><a href="../teacher/dashboard.html">Teachers</a></li></ul></nav>
-  </div>
-</header>
-<main id="main-content">
-  <section class="page-hero"><div class="container"><h1>🎒 Student Learning Portal</h1><p>Track your progress, earn achievement badges, and climb the leaderboard!</p></div></section>
-  <section class="section">
-    <div class="container" style="max-width:700px;">
-      <div class="dash-section">
-        <h3>👤 Your Profile</h3>
-        <div class="form-group"><label>Your Name</label><input type="text" id="student-name" placeholder="Enter your name" value="Student"></div>
-        <button id="save-profile" class="btn btn-sm btn-primary">Save Profile</button>
-        <div style="margin-top:1rem;padding-top:1rem;border-top:1px solid #eee;">
-          <p><strong>Level:</strong> <span id="stu-level">1</span> · <strong>Points:</strong> <span id="stu-points">0</span></p>
-          <p><strong>Badges:</strong> <span id="stu-badges">None yet. Complete simulations to earn badges!</span></p>
-        </div>
-      </div>
-      <div class="dash-section">
-        <h3>🏆 Leaderboard</h3>
-        <div id="leaderboard"><p style="color:var(--hmg-text-lighter);font-size:.875rem;">Complete simulations to earn points and appear here!</p></div>
-      </div>
-      <div class="dash-section">
-        <h3>🏅 Available Badges</h3>
-        <div style="display:flex;gap:.5rem;flex-wrap:wrap;">
-          <span class="achievement">🚀 First Steps</span>
-          <span class="achievement">🔬 Lab Explorer</span>
-          <span class="achievement">🧪 Lab Scientist</span>
-          <span class="achievement">🏆 Perfect Score</span>
-          <span class="achievement">🔥 On Fire</span>
-          <span class="achievement">💪 Week Warrior</span>
-          <span class="achievement">👑 Top Performer</span>
-          <span class="achievement">🤝 Helper</span>
-          <span class="achievement">🧠 Polymath</span>
-          <span class="achievement">⭐ Teacher's Pet</span>
-        </div>
-        <p style="margin-top:1rem;font-size:.8125rem;color:var(--hmg-text-lighter);">Earn badges by completing simulations, scoring 100% on quizzes, maintaining streaks, and helping classmates!</p>
-      </div>
-    </div>
-  </section>
-</main>
-<footer class="site-footer"><div class="container"><div class="footer-bottom"><p>&copy; 2026 HMG Concepts.</p></div></div></footer>
-<script src="../assets/js/lab-core.js"></script>
+<div class="topbar">🏫 <a href="https://hmgconcepts.pages.dev">HMG Concepts</a> Ecosystem &mdash; Built by <a href="https://cssadewale.pages.dev">Adewale Samson Adeagbo</a> &middot; <a href="https://hmgacademy.pages.dev">HMG Academy</a></div>
+<header class="header"><div class="container header-inner">
+<a href="../index.html" class="logo"><img src="../assets/images/hmg-academy-logo.png" alt="HMG Academy" height="42" style="height:42px;border-radius:4px;"></a>
+<nav class="nav"><button class="nav-toggle"><span></span><span></span><span></span></button><ul class="nav-menu"><li><a href="../index.html">Home</a></li>
+<li><a href="../subjects/physics/index.html">Physics</a></li>
+<li><a href="../subjects/chemistry/index.html">Chemistry</a></li>
+<li><a href="../subjects/biology/index.html">Biology</a></li>
+<li><a href="../subjects/mathematics/index.html">Maths</a></li>
+<li><a href="../subjects/general-science/index.html">Science</a></li>
+<li><a href="../teacher/dashboard.html">Teachers</a></li></ul></nav></div></header>
+<main>
+<section class="page-hero"><div class="container"><h1>🎒 Student Learning Portal</h1><p>Track your progress, earn achievement badges, and climb the leaderboard!</p></div></section>
+<section class="section"><div class="container" style="max-width:700px;">
+<div class="dash-box"><h3>👤 Your Profile</h3><div class="form-g"><label>Your Name</label><input type="text" id="sin" value="Student"></div>
+<button id="ss" class="btn btn-sm btn-pri">Save Profile</button>
+<div style="margin-top:1rem;padding-top:1rem;border-top:1px solid var(--bl);">
+<p><strong>Level:</strong> <span id="sl">1</span> · <strong>Points:</strong> <span id="sp">0</span></p>
+<p><strong>Badges Earned:</strong> <span id="sb">None yet. Complete simulations to earn badges!</span></p>
+</div></div>
+<div class="dash-box"><h3>🏆 Leaderboard</h3><div id="lb"><p style="color:var(--tl2);">Complete simulations to earn points and climb the leaderboard!</p></div></div>
+<div class="dash-box"><h3>🏅 All Available Badges</h3><div style="display:flex;gap:.5rem;flex-wrap:wrap;">
+<span class="achieve">🚀 First Steps</span><span class="achieve">🔬 Lab Explorer</span><span class="achieve">🧪 Lab Scientist</span>
+<span class="achieve">🏆 Perfect Score</span><span class="achieve">🔥 On Fire</span><span class="achieve">💪 Week Warrior</span>
+<span class="achieve">👑 Top Performer</span><span class="achieve">🤝 Helper</span><span class="achieve">🧠 Polymath</span>
+<span class="achieve">⭐ Teacher's Pet</span>
+</div><p style="margin-top:.75rem;font-size:.8rem;color:var(--tl2);">Complete a simulation: +10pts | Score 100% on quiz: +25pts | Earn a badge: +50pts | Level up: 200pts</p></div></div></section>
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-  const studentId = 'STU-' + Date.now().toString(36).toUpperCase();
-  document.getElementById('save-profile').addEventListener('click', function() {
-    HMG.addStudent({ name: document.getElementById('student-name').value.trim() || 'Student', id: studentId });
-    updatePortal();
-  });
-  function updatePortal() {
-    const students = HMG.getState('students') || [];
-    const s = students.find(x => x.id === studentId);
-    if (s) {
-      document.getElementById('stu-level').textContent = s.level || 1;
-      document.getElementById('stu-points').textContent = s.points || 0;
-      const badges = HMG.getStudentBadges(s.id);
-      document.getElementById('stu-badges').textContent = badges.length ? badges.map(b => b.icon + ' ' + b.name).join(', ') : 'None yet. Start exploring!';
-    }
-    const lb = HMG.getLeaderboard();
-    const lbEl = document.getElementById('leaderboard');
-    if (lb.length) { lbEl.innerHTML = lb.map((s,i) => '<div style="display:flex;align-items:center;gap:.75rem;padding:.5rem;border-radius:8px;"><span style="width:28px;height:28px;display:flex;align-items:center;justify-content:center;border-radius:50%;background:' + (i<3?['#f39c12','#bdc3c7','#d35400'][i]:'#f5f7fa') + ';color:'+(i<3?'#fff':'#888')+';font-weight:700;">' + (i+1) + '</span><strong>' + s.name + '</strong><span style="font-size:.8125rem;color:#888;">' + (s.points||0) + ' pts</span></div>').join(''); }
-  }
-  updatePortal();
-});
-</script>
+document.addEventListener('DOMContentLoaded',function(){
+var sid='STU-'+Date.now().toString(36).toUpperCase();
+document.getElementById('ss').addEventListener('click',function(){HMG.addStudent({name:document.getElementById('sin').value.trim()||'Student',id:sid});up();});
+function up(){var ss=HMG.getState('students')||[],s=ss.find(function(x){return x.id===sid;});
+if(s){document.getElementById('sl').textContent=s.level||1;document.getElementById('sp').textContent=s.points||0;document.getElementById('sb').textContent=HMG.getStudentBadges(s.id).length?HMG.getStudentBadges(s.id).map(function(b){return b.icon+' '+b.name;}).join(', '):'None yet. Complete simulations to earn badges!';}
+var lb=HMG.getLeaderboard();var el=document.getElementById('lb');
+if(lb.length){el.innerHTML=lb.map(function(s,i){var c=i<3?["#f39c12","#bdc3c7","#d35400"][i]:"#f5f7fa";return '<div style="display:flex;align-items:center;gap:.75rem;padding:.5rem;"><span style="width:28px;height:28px;display:flex;align-items:center;justify-content:center;border-radius:50%;background:'+c+';color:'+(i<3?"#fff":"#888")+';font-weight:700;">'+(i+1)+'</span><strong>'+s.name+'</strong><span style="font-size:.8rem;color:#888;margin-left:auto;">'+(s.points||0)+' pts</span></div>';}).join('');}}
+up();});
+</script></main>
+<footer class="footer"><div class="container"><div class="footer-grid"><div class="footer-brand"><img src="../assets/images/hmg-academy-logo.png" alt="HMG Academy" height="35" style="height:35px;border-radius:3px;margin-bottom:.5rem;"><p>An initiative of <a href="https://hmgconcepts.pages.dev" style="color:var(--g);">HMG Concepts</a></p><p class="footer-tag">"Learning Deliberately. Teaching Authentically."</p></div><div class="footer-col"><h4>Labs</h4><ul><li><a href="../subjects/physics/index.html">⚛️ Physics</a></li><li><a href="../subjects/chemistry/index.html">🧪 Chemistry</a></li><li><a href="../subjects/biology/index.html">🧬 Biology</a></li><li><a href="../subjects/mathematics/index.html">📐 Maths</a></li></ul></div><div class="footer-col"><h4>Tools</h4><ul><li><a href="../tools/periodic-table.html">📊 Periodic Table</a></li><li><a href="../tools/calculator.html">🧮 Calculator</a></li><li><a href="../tools/graphing.html">📈 Graphing</a></li></ul></div><div class="footer-col"><h4>People</h4><ul><li><a href="../teacher/dashboard.html">👩‍🏫 Teachers</a></li><li><a href="../student/portal.html">🎒 Students</a></li><li><a href="../parent/portal.html">👨‍👩‍👧 Parents</a></li></ul></div><div class="footer-col"><h4>HMG</h4><ul><li><a href="https://hmgacademy.pages.dev">🎓 Academy</a></li><li><a href="https://hmgconcepts.pages.dev">🏢 Concepts</a></li><li><a href="https://github.com/cssadewale">🐙 GitHub</a></li></ul></div></div><div class="footer-bot"><p>&copy; 2026 HMG Concepts. Built with <strong>100% free tools</strong>.</p></div></div></footer>
+<button class="btt">&uarr;</button>
+<script src="../assets/js/lab-core.js"></script>
 </body>
 </html>
