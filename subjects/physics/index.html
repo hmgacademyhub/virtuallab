@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Physics Lab — HMG Academy Virtual Lab v2</title>
+<meta name="description" content="Interactive Physics lab: Pendulum, Projectile Motion, Wave Interference, Ohm's Law, Lens Optics.">
+<link rel="icon" type="image/svg+xml" href="../../assets/images/favicon.svg">
+<link rel="stylesheet" href="../../assets/css/style.css">
+</head>
+<body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
+<div class="brand-banner">⚛️ HMG Academy Physics Lab — <a href="../../index.html" style="color:#ffd700;">Back to Home</a></div>
+<header class="site-header"><div class="container header-inner">
+  <a href="../../index.html" class="logo"><svg width="42" height="42" viewBox="0 0 42 42"><rect width="42" height="42" rx="10" fill="#e94560"/><path d="M21 8L34 17V34H8V17L21 8Z" fill="white" opacity=".92"/><circle cx="21" cy="23" r="7" fill="#1a1a2e" opacity=".8"/><path d="M14 30L18 23L21 27L24 23L28 30" stroke="#e94560" stroke-width="1.8" fill="none"/></svg>
+    <div class="logo-brand"><span class="logo-name">HMG Academy</span><span class="logo-tagline">Physics Lab</span></div></a>
+  <nav class="main-nav"><ul class="nav-menu"><li><a href="../../index.html">Home</a></li><li><a href="index.html" class="active">Physics</a></li><li><a href="../chemistry/index.html">Chemistry</a></li><li><a href="../biology/index.html">Biology</a></li><li><a href="../mathematics/index.html">Maths</a></li></ul></nav>
+</div></header>
+<main id="main-content">
+  <section class="page-hero" style="background:linear-gradient(135deg,#1a1a2e,#16213e);">
+    <div class="container"><p class="breadcrumb"><a href="../../index.html">Home</a> / Physics Lab</p><h1>⚛️ Physics Virtual Laboratory</h1><p>5 working Canvas-based simulations: Pendulum, Projectile Motion, Wave Interference, Ohm's Law, Lens Optics — aligned with WAEC, NECO, JAMB & IGCSE.</p></div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title" style="font-size:1.5rem;">1. 🕰️ Simple Pendulum Lab</h2>
+      <p style="text-align:center;color:var(--hmg-text-light);margin-bottom:1.5rem;">T = 2π√(L/g). <strong>WAEC Practical</strong> — Record T at different L, plot T² vs L, determine g from slope.</p>
+      <div class="sim-player">
+        <div class="sim-canvas-wrap"><canvas id="sim1" width="700" height="380"></canvas></div>
+        <div class="sim-controls">
+          <label>Length: <span id="v1">120</span>px <input type="range" id="c1" min="50" max="200" value="120"></label>
+          <label>Gravity: <span id="v2">9.8</span> <input type="range" id="c2" min="1" max="20" value="9.8" step="0.1"></label>
+          <button id="b1" class="btn btn-sm btn-primary">⏸ Pause</button>
+          <button id="b2" class="btn btn-sm btn-ghost">↺ Reset</button>
+          <button id="b3" class="btn btn-sm btn-ghost">📊 Record</button>
+        </div>
+        <div class="sim-info"><div id="dt" style="display:none" class="data-table"><h4>📊 Data</h4><table><thead><tr><th>#</th><th>L(px)</th><th>T(s)</th><th>T²(s²)</th></tr></thead><tbody id="db"></tbody></table></div></div>
+      </div>
+      <h2 class="section-title" style="font-size:1.5rem;margin-top:3rem;">2. 🎯 Projectile Motion</h2>
+      <p style="text-align:center;color:var(--hmg-text-light);margin-bottom:1.5rem;"><strong>JAMB Prep</strong> — Adjust angle & speed, observe range & max height.</p>
+      <div class="sim-player">
+        <div class="sim-canvas-wrap"><canvas id="sim2" width="700" height="380"></canvas></div>
+        <div class="sim-controls">
+          <label>Angle: <span id="v3">45</span>° <input type="range" id="c3" min="0" max="90" value="45"></label>
+          <label>Speed: <span id="v4">30</span> <input type="range" id="c4" min="5" max="60" value="30"></label>
+          <button id="b4" class="btn btn-sm btn-primary">🚀 Launch</button>
+          <button id="b5" class="btn btn-sm btn-ghost">↺ Clear</button>
+        </div>
+      </div>
+      <h2 class="section-title" style="font-size:1.5rem;margin-top:3rem;">3. 🌊 Wave Interference</h2>
+      <div class="sim-player">
+        <div class="sim-canvas-wrap"><canvas id="sim3" width="700" height="380"></canvas></div>
+        <div class="sim-controls">
+          <label>Amplitude: <span id="v5">60</span> <input type="range" id="c5" min="10" max="120" value="60"></label>
+          <label>Wavelength: <span id="v6">120</span> <input type="range" id="c6" min="30" max="250" value="120"></label>
+          <label>Freq: <span id="v7">2</span> <input type="range" id="c7" min="0.5" max="5" value="2" step="0.5"></label>
+          <button id="b6" class="btn btn-sm btn-primary">⏸ Pause</button>
+        </div>
+      </div>
+      <h2 class="section-title" style="font-size:1.5rem;margin-top:3rem;">4. ⚡ Ohm's Law</h2>
+      <div class="sim-player">
+        <div class="sim-canvas-wrap"><canvas id="sim4" width="700" height="320"></canvas></div>
+        <div class="sim-controls">
+          <label>V: <span id="v8">12</span>V <input type="range" id="c8" min="1" max="24" value="12"></label>
+          <label>R: <span id="v9">100</span>Ω <input type="range" id="c9" min="10" max="500" value="100"></label>
+        </div>
+      </div>
+      <h2 class="section-title" style="font-size:1.5rem;margin-top:3rem;">5. 🔍 Lens Optics</h2>
+      <div class="sim-player">
+        <div class="sim-canvas-wrap"><canvas id="sim5" width="700" height="380"></canvas></div>
+        <div class="sim-controls">
+          <label>Focal: <span id="v10">100</span>px <input type="range" id="c10" min="50" max="150" value="100"></label>
+          <label>Object: <span id="v11">180</span>px <input type="range" id="c11" min="40" max="300" value="180"></label>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<footer class="site-footer"><div class="container"><div class="footer-bottom"><p>&copy; 2026 HMG Concepts. Built with free tools.</p></div></div></footer>
+<button id="back-to-top" class="back-to-top">↑</button>
+<script src="../../assets/js/lab-core.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded',function(){
+// 1. Pendulum
+const s1=document.getElementById('sim1');if(s1){const c=s1.getContext('2d');let a=Math.PI/4,v=0,l=120,g=9.8,run=1,d=[];
+document.getElementById('c1').oninput=function(){l=+this.value;document.getElementById('v1').textContent=l;};
+document.getElementById('c2').oninput=function(){g=+this.value;document.getElementById('v2').textContent=g;};
+document.getElementById('b1').onclick=function(){run=!run;this.textContent=run?'⏸ Pause':'▶ Resume';};
+document.getElementById('b2').onclick=function(){a=Math.PI/4;v=0;run=1;document.getElementById('b1').textContent='⏸ Pause';};
+document.getElementById('b3').onclick=function(){const p=2*Math.PI*Math.sqrt(l/(g*10));d.push({L:l,T:p.toFixed(3),T2:(p*p).toFixed(3)});
+const tb=document.getElementById('dt'),bd=document.getElementById('db');tb.style.display='block';bd.innerHTML=d.map((x,i)=>'<tr><td>'+(i+1)+'</td><td>'+x.L+'</td><td>'+x.T+'</td><td>'+x.T2+'</td></tr>').join('');};
+!function loop(){if(run){const acc=(-g/l)*Math.sin(a);v+=acc*0.05;v*=0.997;a+=v*0.05;}
+c.clearRect(0,0,700,380);const px=350,py=55,s=l*2,bx=px+s*Math.sin(a),by=py+s*Math.cos(a);
+for(let x=0;x<=700;x+=50){c.beginPath();c.moveTo(x,0);c.lineTo(x,380);c.strokeStyle='#eee';c.stroke();}
+for(let y=0;y<=380;y+=50){c.beginPath();c.moveTo(0,y);c.lineTo(700,y);c.stroke();}
+c.beginPath();c.moveTo(px,py);c.lineTo(bx,by);c.strokeStyle='#555';c.lineWidth=1.5;c.stroke();
+c.beginPath();c.arc(px,py,8,0,Math.PI*2);c.fillStyle='#333';c.fill();
+c.beginPath();c.arc(bx,by,15,0,Math.PI*2);const gr=c.createRadialGradient(bx-4,by-4,2,bx,by,15);gr.addColorStop(0,'#ff6b81');gr.addColorStop(1,'#e94560');c.fillStyle=gr;c.fill();
+c.fillStyle='#555';c.font='13px Inter';c.textAlign='left';c.fillText('θ='+(a*180/Math.PI).toFixed(1)+'°',10,22);const p=2*Math.PI*Math.sqrt(l/(g*10));c.fillText('T='+p.toFixed(3)+'s T²='+(p*p).toFixed(3)+'s²',10,40);
+requestAnimationFrame(loop);}()}
+// 2. Projectile
+const s2=document.getElementById('sim2');if(s2){const c=s2.getContext('2d');let ang=45,spd=30,projs=[];
+document.getElementById('c3').oninput=function(){ang=+this.value;document.getElementById('v3').textContent=ang;};
+document.getElementById('c4').oninput=function(){spd=+this.value;document.getElementById('v4').textContent=spd;};
+document.getElementById('b4').onclick=function(){const rad=ang*Math.PI/180;projs.push({x:60,y:s2.height-50,vx:spd*Math.cos(rad)*3,vy:-(spd*Math.sin(rad)*3),trail:[]});};
+document.getElementById('b5').onclick=function(){projs=[];};
+!function loop(){const gnd=s2.height-50;projs.forEach(p=>{p.trail.push({x:p.x,y:p.y});p.x+=p.vx*0.05;p.vy+=0.5;p.y+=p.vy*0.05;});
+projs=projs.filter(p=>p.y<gnd&&p.x>0&&p.x<700);
+c.clearRect(0,0,700,380);const sk=c.createLinearGradient(0,0,0,gnd);sk.addColorStop(0,'#e8f4fd');sk.addColorStop(1,'#d4e8f0');c.fillStyle=sk;c.fillRect(0,0,700,gnd);
+c.fillStyle='#4a7c3f';c.fillRect(0,gnd,700,50);c.strokeStyle='#3a6c2f';c.lineWidth=2;c.beginPath();c.moveTo(0,gnd);c.lineTo(700,gnd);c.stroke();
+projs.forEach(p=>{if(p.trail.length>1){c.beginPath();c.moveTo(p.trail[0].x,p.trail[0].y);for(let i=1;i<p.trail.length;i++)c.lineTo(p.trail[i].x,p.trail[i].y);c.strokeStyle='rgba(233,69,96,0.5)';c.lineWidth=2;c.stroke();}
+c.beginPath();c.arc(p.x,p.y,6,0,Math.PI*2);c.fillStyle='#e94560';c.fill();});
+if(projs.length){const p0=projs[0];c.fillStyle='#333';c.font='13px Inter';c.textAlign='left';c.fillText('Dist:'+((p0.x-60)/5).toFixed(1)+'m',10,20);c.fillText('Ht:'+Math.max(0,(gnd-p0.y)/5).toFixed(1)+'m',10,38);}
+requestAnimationFrame(loop);}()}
+// 3. Waves
+const s3=document.getElementById('sim3');if(s3){const c=s3.getContext('2d');let amp=60,wlen=120,freq=2,ph=0,run=1;
+document.getElementById('c5').oninput=function(){amp=+this.value;document.getElementById('v5').textContent=amp;};
+document.getElementById('c6').oninput=function(){wlen=+this.value;document.getElementById('v6').textContent=wlen;};
+document.getElementById('c7').oninput=function(){freq=+this.value;document.getElementById('v7').textContent=freq;};
+document.getElementById('b6').onclick=function(){run=!run;this.textContent=run?'⏸ Pause':'▶ Resume';};
+!function loop(){if(run)ph+=0.05;c.clearRect(0,0,700,380);const mid=190;
+c.strokeStyle='#f0f0f0';c.lineWidth=1;for(let x=0;x<=700;x+=40){c.beginPath();c.moveTo(x,0);c.lineTo(x,380);c.stroke();}
+c.beginPath();c.moveTo(0,mid);c.lineTo(700,mid);c.strokeStyle='#ddd';c.stroke();
+c.beginPath();for(let x=0;x<=700;x++){const y=mid+amp*Math.sin(2*Math.PI*(x/wlen-ph)*(freq/2));x===0?c.moveTo(x,y):c.lineTo(x,y);}
+c.strokeStyle='#e94560';c.lineWidth=3;c.stroke();
+c.beginPath();for(let x=0;x<=700;x++){const y=mid+amp*0.6*Math.sin(2*Math.PI*(x/(wlen*0.7)-ph+0.25));x===0?c.moveTo(x,y):c.lineTo(x,y);}
+c.strokeStyle='#4a90d9';c.lineWidth=2;c.setLineDash([5,5]);c.stroke();c.setLineDash([]);
+c.fillStyle='#555';c.font='12px Inter';c.textAlign='left';c.fillText('A:'+amp+' W:'+wlen+' F:'+freq,10,20);
+requestAnimationFrame(loop);}()}
+// 4. Ohm's Law
+const s4=document.getElementById('sim4');if(s4){const c=s4.getContext('2d');let v=12,r=100;
+document.getElementById('c8').oninput=function(){v=+this.value;document.getElementById('v8').textContent=v;};
+document.getElementById('c9').oninput=function(){r=+this.value;document.getElementById('v9').textContent=r;};
+!function loop(){const I=v/r,P=v*I;
+c.clearRect(0,0,700,320);c.strokeStyle='#333';c.lineWidth=2;
+c.beginPath();c.moveTo(50,160);c.lineTo(650,160);c.stroke();
+c.fillStyle='#e94560';c.fillRect(350-30,160-25,60,10);c.fillStyle='#0f3460';c.fillRect(350-20,160-5,40,10);
+c.fillStyle='#333';c.font='11px Inter';c.textAlign='center';c.fillText('+',350-25,160+5);c.fillText('−',350+20,160+5);c.fillText(v+'V',350,160+25);
+const rx=150;c.beginPath();c.moveTo(rx,160);for(let i=0;i<6;i++){c.lineTo(rx+i*12+6,160-20);c.lineTo(rx+(i+1)*12,160);}c.stroke();c.fillStyle='#8B4513';c.fillText(r+'Ω',rx+35,160-30);
+for(let i=0;i<3;i++){const ph=(Date.now()/300+i*0.3)%1;const cx=50+600*ph;c.beginPath();c.arc(cx,160,4,0,Math.PI*2);c.fillStyle='rgba(233,69,96,'+(0.3+0.5*Math.sin(ph*Math.PI))+')';c.fill();}
+c.fillStyle='#333';c.font='14px Inter';c.textAlign='left';c.fillText('V='+v+'V',10,22);c.fillText('R='+r+'Ω',10,40);
+c.fillStyle='#e94560';c.font='bold 16px Inter';c.fillText('I='+I.toFixed(3)+'A',10,65);c.fillStyle='#27ae60';c.fillText('P='+P.toFixed(3)+'W',10,88);
+setTimeout(()=>loop(),50);}()}
+// 5. Lens
+const s5=document.getElementById('sim5');if(s5){const c=s5.getContext('2d');let fl=100,od=180;
+document.getElementById('c10').oninput=function(){fl=+this.value;document.getElementById('v10').textContent=fl;};
+document.getElementById('c11').oninput=function(){od=+this.value;document.getElementById('v11').textContent=od;};
+!function loop(){c.clearRect(0,0,700,380);const mid=190,lx=350;
+c.strokeStyle='#ddd';c.lineWidth=1;c.setLineDash([5,5]);c.beginPath();c.moveTo(0,mid);c.lineTo(700,mid);c.stroke();c.setLineDash([]);
+c.strokeStyle='#0f3460';c.lineWidth=3;c.beginPath();c.arc(lx,mid-60,60,0,Math.PI);c.stroke();c.beginPath();c.arc(lx,mid+60,60,Math.PI,0);c.stroke();
+c.fillStyle='rgba(15,52,96,0.08)';c.fillRect(lx-8,0,16,380);
+c.fillStyle='#e94560';c.beginPath();c.arc(lx-fl,mid,4,0,Math.PI*2);c.fill();c.beginPath();c.arc(lx+fl,mid,4,0,Math.PI*2);c.fill();
+c.fillStyle='#999';c.font='11px Inter';c.textAlign='center';c.fillText('F',lx-fl,mid+18);c.fillText('F',lx+fl,mid+18);
+const objX=lx-od;c.strokeStyle='#e94560';c.lineWidth=2;c.beginPath();c.moveTo(objX,mid);c.lineTo(objX,mid-60);c.stroke();
+c.beginPath();c.moveTo(objX,mid-60);c.lineTo(objX-8,mid-52);c.lineTo(objX+8,mid-52);c.closePath();c.fillStyle='#e94560';c.fill();
+c.fillStyle='#333';c.font='11px Inter';c.textAlign='center';c.fillText('Object',objX,mid-72);
+if(od!==fl){const di=1/((1/fl)-(1/od));const imgX=lx+di;const mag=-di/od;const imgH=mag*60;const col=di>0?'#27ae60':'#9b59b6';
+c.strokeStyle=col;c.lineWidth=2;c.beginPath();c.moveTo(imgX,mid);c.lineTo(imgX,mid-imgH);c.stroke();
+c.beginPath();c.moveTo(imgX,mid-imgH);c.lineTo(imgX-8,mid-imgH+8);c.lineTo(imgX+8,mid-imgH+8);c.closePath();c.fillStyle=col;c.fill();
+c.fillStyle=col;c.fillText('Image('+(di>0?'Real':'Virtual')+')',imgX,mid-imgH-12);}
+c.fillStyle='#333';c.font='13px Inter';c.textAlign='left';c.fillText('f='+fl+' u='+od+'px',10,22);
+setTimeout(()=>loop(),100);}()}
+});
+</script>
+</body>
+</html>
